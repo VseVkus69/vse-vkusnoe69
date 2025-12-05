@@ -1,11 +1,10 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
 
 
 /* Рукописный шрифт для всех описаний карточек */
 .card-body p {
-  font-family: 'Caveat', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 15px; /* немного уменьшено */
   color: #fce7d8;
   line-height: 1.5;
