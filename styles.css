@@ -365,11 +365,20 @@ body::before{
 }
 
 @media (max-width: 768px) {
+    /* телефоны — всегда 2 карточки */
+.cards-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* планшеты и ПК — 3 карточки */
+@media (min-width: 980px) {
     .cards-3 {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* ровно 2 карточки в ряд */
-        gap: 16px; /* расстояние между карточками */
+        grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
 }
 
 
