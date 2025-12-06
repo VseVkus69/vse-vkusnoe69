@@ -426,5 +426,125 @@ body::before{
   }
 }
 
+.master-contact {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--panel-3);
+  box-shadow: 0 10px 25px #0004;
+  text-align: center;
+}
 
+.master-contact h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.master-contact p {
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+.phone-btn {
+  display: inline-block;
+  background: #ff7b34;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.phone-btn:hover {
+  background: #ff8f50;
+  transform: translateY(-2px);
+}
+.phone-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  background: var(--brand);
+  color: #f1e1d8;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  user-select: none;      /* Нельзя выделять */
+  -webkit-user-select: none;
+  caret-color: transparent; /* Убирает палочку */
+}
+
+.phone-btn:focus {
+  outline: none;          /* Убирает рамку при нажатии */
+}
+
+h2, h3, h1, p, .section-head, .order-title {
+  caret-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.phone-btn {
+  caret-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.order-section * {
+  cursor: default !important;
+}
+/* === Компактный красивый блок заказа тортов === */
+.custom-order-box {
+  max-width: 600px;
+  margin: 40px auto 0;
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.custom-order-box h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.custom-order-box p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.custom-order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--brand);
+  padding: 12px 24px;
+  border-radius: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(240,112,47,0.4);
+  transition: 0.25s;
+}
+
+.custom-order-btn:hover {
+  background: var(--brand-2);
+  transform: translateY(-2px);
+}
+
+.phone-ico {
+  font-size: 18px;
+}
 
