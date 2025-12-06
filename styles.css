@@ -499,7 +499,7 @@ h2, h3, h1, p, .section-head, .order-title {
 .order-section * {
   cursor: default !important;
 }
-/* === Компактный красивый блок заказа тортов === */
+/* === Компактный блок заказа тортов === */
 .custom-order-box {
   max-width: 600px;
   margin: 40px auto 0;
@@ -548,3 +548,27 @@ h2, h3, h1, p, .section-head, .order-title {
   font-size: 18px;
 }
 
+/* Кнопка WhatsApp */
+.custom-order-btn.whatsapp {
+    background: #25D366;        /* фирменный зеленый */
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.custom-order-btn.whatsapp:hover {
+    background: #1ebe57;
+}
+
+/* Иконка */
+.wa-ico {
+    font-size: 20px;
+}
