@@ -311,7 +311,7 @@ body::before{
 .product-card span{margin-top:auto;color:var(--accent);font-weight:700}
 
 .about-text {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 0.95rem;
   line-height: 1.6;
   color: #f0e1d1;
@@ -321,7 +321,7 @@ body::before{
 .about-list {
   margin-top: 0.5rem;
   margin-left: 1.2rem;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 0.95rem;
   color: #f0e1d1;
   list-style-type: "🍰 ";
@@ -331,7 +331,7 @@ body::before{
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Dancing Script', cursive;
+ font-family: 'Dancing Script', cursive;
   font-size: 1.1rem;
   color: #f7c08a;
   text-decoration: none;
