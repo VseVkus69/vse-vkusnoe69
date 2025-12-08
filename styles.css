@@ -733,3 +733,78 @@ h2, h3, h1, p, .section-head, .order-title {
   height:330px;
   border:0;
 }
+
+/* ===== Карточка адреса (Мобильный режим) ===== */
+.branch-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 24px;
+  background: #1d1613;
+  margin-bottom: 16px;
+}
+
+/* Левая часть: название и адрес */
+.branch-meta {
+  flex: 1;
+}
+
+/* Правая часть с телефоном и кнопками */
+.branch-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Телефон — всегда ОДНА строка */
+.branch-phone a {
+  background: #ff8c33;
+  padding: 10px 18px;
+  border-radius: 16px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  font-size: 18px;
+}
+
+/* Кнопки */
+.branch-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.branch-actions .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #2a2220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+/* ===== Мобильный режим до 480px ===== */
+@media (max-width: 480px) {
+  .branch-item {
+    padding: 16px;
+  }
+
+  .branch-actions {
+    justify-content: center;
+  }
+
+  .branch-phone a {
+    font-size: 17px;
+    padding: 10px 14px;
+  }
+
+  .branch-right {
+    width: 100%;
+  }
+}
