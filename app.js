@@ -54,12 +54,9 @@ let activeBranchId = branches[0]?.id || null;
 
 // Google Maps — стабильный поиск и правильный центр
 function embedSrcByAddress(addr){
-  return (
-    "https://www.google.com/maps?q=" +
-    encodeURIComponent("Тверь, " + addr) +
-    "&output=embed"
-  );
+  return 'https://www.google.com/maps?q=' + encodeURIComponent('Тверь ' + addr) + '&output=embed';
 }
+
 
 
 
@@ -125,27 +122,4 @@ function setActive(id){
   renderBranches();
   if (branches[0]) setActive(branches[0].id);
 })();
-
-document.getElementById('year').textContent = new Date().getFullYear();
-const btnShow = mkBtn(
-  'button',
-  '📍',
-  'Показать на карте (Яндекс)',
-  null,
-  () => setActive(b.id)
-);
-
-const btnY = mkBtn(
-  'a',
-  'Y',
-  'Открыть в Яндекс.Картах',
-  'https://yandex.ru/maps/?text=' + encodeURIComponent(b.address)
-);
-
-const btnG = mkBtn(
-  'a',
-  'G',
-  'Открыть в Google Maps',
-  'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(b.address)
-);
 

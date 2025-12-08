@@ -7,13 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Top Bar -->
-  <div class="topbar">
-    <div class="container row between center">
-      <p>Ремесленная кондитерская • Натуральные ингредиенты</p>
-      <span>«Всё вкусное»</span>
-    </div>
-  </div>
 
   <!-- Header -->
   <header class="header">
@@ -1244,19 +1237,37 @@
 
 
   <!-- Contacts & Map -->
-  <section id="contacts" class="section">
-    <div class="container grid-2 gap-24">
-      <div>
-        <div class="section-head"><div class="section-sub">Где нас найти</div><h2>Адреса</h2></div>
-        <ul class="branch-list" id="branchList">
-        </ul>
-      </div>
-      <div class="map-card">
-        <div class="map-title" id="mapTitle">Выберите точку</div>
-        <iframe title="Карта" id="mapFrame" class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+  <!-- Contacts -->
+<section id="contacts" class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <div class="section-sub">Где нас найти</div>
+      <h2>Адреса</h2>
     </div>
-  </section>
+
+    <div class="contacts-layout">
+
+      <!-- Левый блок — список точек -->
+      <ul id="branchList" class="branch-list compact"></ul>
+
+      <!-- Правый блок — карта -->
+      <div class="map-card">
+        <div id="mapTitle" class="map-title">Выберите точку</div>
+
+        <iframe
+          id="mapFrame"
+          class="map-frame"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="footer">
