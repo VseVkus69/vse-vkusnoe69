@@ -759,7 +759,7 @@ h2, h3, h1, p, .section-head, .order-title {
 
 /* Телефон — всегда ОДНА строка */
 .branch-phone a {
-  background: #ff8c33;
+  background: rgba(26, 12, 6, 0.4);
   padding: 10px 18px;
   border-radius: 16px;
   color: #fff;
