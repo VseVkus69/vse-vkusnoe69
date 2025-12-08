@@ -33,27 +33,36 @@ function ensureCardImages(){
   });
 }
 
-// ===== Адреса (примерные 9 точек) =====
+// ===== Адреса (9 точек) =====
 const branches = [
-  { id:'center',  name:'Центральная', address:'ул. Сладкая, 10',      phone:'+7 900 000-01-01' },
-  { id:'north',   name:'Северная',    address:'ул. Медовая, 5',       phone:'+7 900 000-01-02' },
-  { id:'south',   name:'Южная',       address:'пр-т Ореховый, 12',    phone:'+7 900 000-01-03' },
-  { id:'east',    name:'Восточная',   address:'ул. Пекарская, 3',     phone:'+7 900 000-01-04' },
-  { id:'west',    name:'Западная',    address:'ул. Шоколадная, 22',   phone:'+7 900 000-01-05' },
-  { id:'market',  name:'Рынок',       address:'пл. Ярмарочная, 7',    phone:'+7 900 000-01-06' },
-  { id:'mall',    name:'ТЦ Сладко',   address:'пр-т Ванильный, 15',   phone:'+7 900 000-01-07' },
-  { id:'park',    name:'Парк',        address:'аллея Десертная, 4',   phone:'+7 900 000-01-08' },
-  { id:'station', name:'Вокзал',      address:'пр-д Урбечный, 1',     phone:'+7 900 000-01-09' },
+  { id:'osnab', name:'Оснабрюкская', address:'Оснабрюкская 14', phone:'+79106475169' },
+  { id:'mosc',  name:'Московская', address:'Московская 1', phone:'+79106406291' },
+  { id:'pasha', name:'Паши Савельевой', address:'Паши Савельевой 27к1', phone:'+79157036295' },
+  { id:'ordzh', name:'Орджоникидзе', address:'Орджоникидзе 46А', phone:'+79201653618' },
+  { id:'voln',  name:'Вольного Новгорода', address:'Вольного Новгорода 14', phone:'+79157399659' },
+  { id:'lenin', name:'пр. Ленина', address:'проспект Ленина 8', phone:'+79201653608' },
+  { id:'koms',  name:'пр. Комсомольский', address:'проспект Комсомольский 4к4', phone:'+79201585021' },
+  { id:'bshm',  name:'Бульвар Шмидта', address:'Бульвар Шмидта 38', phone:'+79201678789' },
+  { id:'levit', name:'ул. Левитана', address:'ул. Левитана 58к1', phone:'+79201788752' }
 ];
+
 
 const branchList = document.getElementById('branchList');
 const mapTitle   = document.getElementById('mapTitle');
 const mapFrame   = document.getElementById('mapFrame');
 let activeBranchId = branches[0]?.id || null;
 
+// Google Maps — стабильный поиск и правильный центр
 function embedSrcByAddress(addr){
-  return 'https://www.google.com/maps?q=' + encodeURIComponent(addr) + '&output=embed';
+  return (
+    "https://www.google.com/maps?q=" +
+    encodeURIComponent("Тверь, " + addr) +
+    "&output=embed"
+  );
 }
+
+
+
 
 function renderBranches(){
   if (!branchList) return;
@@ -118,3 +127,25 @@ function setActive(id){
 })();
 
 document.getElementById('year').textContent = new Date().getFullYear();
+const btnShow = mkBtn(
+  'button',
+  '📍',
+  'Показать на карте (Яндекс)',
+  null,
+  () => setActive(b.id)
+);
+
+const btnY = mkBtn(
+  'a',
+  'Y',
+  'Открыть в Яндекс.Картах',
+  'https://yandex.ru/maps/?text=' + encodeURIComponent(b.address)
+);
+
+const btnG = mkBtn(
+  'a',
+  'G',
+  'Открыть в Google Maps',
+  'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(b.address)
+);
+
