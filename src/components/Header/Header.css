@@ -1,0 +1,37 @@
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav a.active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.nav.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--panel);
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 860px) {
+  .nav.open {
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+}
+

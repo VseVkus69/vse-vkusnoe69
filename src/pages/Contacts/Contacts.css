@@ -1,0 +1,22 @@
+.contacts-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (min-width: 980px) {
+  .contacts-layout {
+    grid-template-columns: 1fr 1.25fr;
+  }
+}
+
+.branch-item {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.branch-item:hover {
+  transform: translateX(4px);
+}
+

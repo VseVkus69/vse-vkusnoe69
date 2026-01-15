@@ -1,0 +1,1592 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+
+/* Описания карточек - в стиле буше */
+.card-body p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  letter-spacing: 0;
+  margin: 0;
+  transition: var(--transition);
+  font-weight: 400;
+}
+
+
+/* Цветовая схема и переменные - в стиле буше */
+:root {
+  --bg: #fafafa;
+  --panel: #ffffff;
+  --panel-2: #f8f8f8;
+  --panel-3: #f5f5f5;
+  --text: #0a0a0a;
+  --text-secondary: #2d2d2d;
+  --muted: #5a5a5a;
+  --muted-light: #8a8a8a;
+  --brand: #c8965f;
+  --brand-2: #b8865b;
+  --brand-dark: #9d6f47;
+  --accent: #d4a574;
+  --border: rgba(0, 0, 0, .08);
+  --border-2: rgba(0, 0, 0, .12);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, .08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, .1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, .12);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* layout helpers */
+.container{max-width:1120px;margin-inline:auto;padding:0 16px}
+.row{display:flex;gap:8px}
+.row.center{align-items:center}
+.row.between{justify-content:space-between}
+.row.wrap{flex-wrap:wrap}
+.grid-2{display:grid;grid-template-columns:1fr}
+@media (min-width:860px){.grid-2{grid-template-columns:1fr 1fr}}
+.gap-12{gap:12px}.gap-24{gap:24px}
+.center-v{align-items:center}
+.mt-16{margin-top:16px}.mt-24{margin-top:24px}
+
+/* top bar */
+.topbar{background:#2a201b;color:var(--muted);font-size:14px}
+.topbar .container{padding:8px 16px}
+
+/* header - в стиле буше */
+.header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  background:rgba(255, 255, 255, 0.95);
+  backdrop-filter:blur(12px) saturate(180%);
+  -webkit-backdrop-filter:blur(12px) saturate(180%);
+  border-bottom:1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.header .container{
+  padding:16px 20px;
+}
+
+/* logo block - в стиле буше */
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:12px;
+  background:var(--panel);
+  padding:8px;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  transition:var(--transition);
+}
+.logo:hover{
+  box-shadow:var(--shadow-md);
+  transform:translateY(-1px);
+}
+.logo.small{width:50px;height:50px}
+.logo img{width:100%;height:100%;object-fit:contain;display:block}
+
+.brand-title{
+  font-weight:700;
+  letter-spacing:-0.02em;
+  font-size:22px;
+  color:var(--text);
+}
+.brand-sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:2px;
+  font-weight:500;
+}
+
+/* nav - в стиле буше */
+.nav{
+  display:none;
+  gap:32px;
+  align-items:center;
+}
+.nav a{
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  position:relative;
+  transition:var(--transition);
+  padding:4px 0;
+}
+.nav a::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--brand);
+  transition:var(--transition);
+}
+.nav a:hover{
+  color:var(--brand);
+}
+.nav a:hover::after{
+  width:100%;
+}
+.burger{
+  display:inline-flex;
+  flex-direction:column;
+  gap:4px;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:10px;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  transition:var(--transition);
+}
+.burger:hover{
+  background:var(--panel-2);
+  border-color:var(--border-2);
+}
+.burger span{
+  display:block;
+  width:20px;
+  height:2px;
+  background:currentColor;
+  transition:var(--transition);
+}
+.mobile-nav{
+  display:none;
+  border-top:1px solid var(--border);
+  background:var(--panel);
+  box-shadow:var(--shadow-md);
+}
+.mobile-nav a{
+  display:block;
+  padding:14px 20px;
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-weight:600;
+  transition:var(--transition);
+  border-bottom:1px solid var(--border);
+}
+.mobile-nav a:last-child{
+  border-bottom:none;
+}
+.mobile-nav a:hover{
+  color:var(--brand);
+  background:var(--panel-2);
+  padding-left:24px;
+}
+@media (min-width:860px){
+  .nav{display:flex}
+  .burger{display:none}
+}
+
+/* hero - в стиле буше */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+}
+.hero>.container{
+  position:relative;
+  padding:80px 20px;
+}
+.hero-card{
+  aspect-ratio:4/3;
+  border-radius:20px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:0;
+  overflow:hidden;
+  transition:var(--transition);
+}
+.hero-card:hover{
+  box-shadow:0 12px 32px rgba(0,0,0,.15);
+  transform:translateY(-4px);
+}
+.hero h1{
+  font-size:36px;
+  line-height:1.2;
+  margin:0 0 16px;
+  font-weight:800;
+  color:var(--text);
+  letter-spacing:-0.03em;
+}
+@media (min-width:860px){
+  .hero h1{font-size:52px}
+}
+.hero h1 span{
+  display:block;
+  color:var(--brand);
+  font-weight:700;
+}
+.lead{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  max-width:600px;
+  margin:0 auto 32px;
+  font-weight:400;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 28px;
+  border-radius:12px;
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:var(--transition);
+  border:none;
+}
+.btn.primary{
+  background:var(--brand);
+  color:#fff;
+  box-shadow:var(--shadow-md);
+}
+.btn.primary:hover{
+  background:var(--brand-2);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+.btn.outline{
+  border:2px solid var(--border);
+  color:var(--text);
+  background:transparent;
+}
+.btn.outline:hover{
+  border-color:var(--brand);
+  color:var(--brand);
+  background:var(--panel-2);
+}
+
+/* sections - в стиле буше */
+.section{
+  padding:80px 0;
+}
+.section.alt{
+  background:var(--panel-2);
+  border-block:1px solid var(--border);
+}
+.section-head{
+  text-align:center;
+  margin-bottom:48px;
+}
+.section-head .section-sub{
+  color:var(--brand);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.section-head h2{
+  margin:0;
+  font-size:32px;
+  font-weight:800;
+  color:var(--text);
+  letter-spacing:-0.03em;
+}
+@media (min-width:860px){
+  .section-head h2{font-size:42px}
+}
+
+/* chips - в стиле буше */
+.chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:24px;
+  justify-content:center;
+}
+.chip{
+  display:inline-block;
+  border:2px solid var(--border);
+  padding:10px 20px;
+  border-radius:24px;
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  transition:var(--transition);
+  background:var(--panel);
+}
+.chip:hover{
+  border-color:var(--brand);
+  color:var(--brand);
+  background:var(--panel-2);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-sm);
+}
+
+/* cards */
+.cards-3,.cards-5{display:grid;gap:16px}
+.cards-3{grid-template-columns:1fr}
+@media (min-width:640px){.cards-3{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.cards-3{grid-template-columns:1fr 1fr 1fr}}
+.cards-5{grid-template-columns:1fr 1fr}
+@media (min-width:980px){.cards-5{grid-template-columns:repeat(5,1fr)}}
+
+/* cards - в стиле буше */
+.card{
+  display:flex;
+  flex-direction:column;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  color:inherit;
+  text-decoration:none;
+  transition:var(--transition);
+  box-shadow:var(--shadow-sm);
+}
+.card:hover{
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+  border-color:var(--border-2);
+}
+.card-body{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.card-body h3{
+  font-size:18px;
+  font-weight:700;
+  color:var(--text);
+  margin:0 0 4px;
+  letter-spacing:-0.01em;
+  line-height:1.4;
+}
+.tag{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+/* изображение - в стиле буше */
+.card-img{
+  position:relative;
+  aspect-ratio:4/3;
+  background:var(--panel-3);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card-img.square{aspect-ratio:1/1}
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:var(--transition);
+}
+.card:hover .card-img img{
+  transform:scale(1.05);
+}
+
+/* fallback для старых браузеров без aspect-ratio */
+@supports not (aspect-ratio: 1 / 1){
+  .card-img::before{content:"";display:block;padding-top:75%}
+  .card-img>img{position:absolute;inset:0}
+}
+
+/* placeholder для пустых/битых картинок */
+.img-placeholder{width:100%;height:100%;background:repeating-linear-gradient(45deg,#2a201b,#2a201b 10px,#231a15 10px,#231a15 20px)}
+
+/* about-image рамка */
+.placeholder{border-radius:24px;background:var(--panel-3);border:1px solid var(--border);aspect-ratio:4/3;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.placeholder img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+
+/* контакты + карта */
+.branch-list{display:grid;gap:12px;margin-top:16px}
+.branch-item{display:grid;grid-template-columns:1fr auto;gap:12px;background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:16px}
+.branch-meta .name{
+  font-weight:700;
+  font-size:16px;
+  color:var(--text);
+}
+.branch-meta .addr{
+  color:var(--text-secondary);
+  font-size:14px;
+  font-weight:400;
+}
+.branch-phone{margin-top:6px;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-weight:700}
+.branch-phone a{color:inherit;text-decoration:none}
+.branch-actions{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;justify-content:flex-end}
+.branch-actions a,.branch-actions button{font-size:13px;padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--text);text-decoration:none;cursor:pointer}
+.branch-actions a[href^="tel:"]::before{content:"📞 "}
+.branch-actions a[href*="wa.me"]::before{content:"💬 "}
+.branch-item.active{border-color:var(--border-2)}
+.branch-actions a:hover,.branch-actions button:hover{border-color:var(--border-2)}
+@media (max-width:860px){.branch-item{grid-template-columns:1fr}.branch-actions{justify-content:flex-start}}
+
+.map-card{background:var(--panel-3);border:1px solid var(--border);border-radius:24px;overflow:hidden}
+.map-title{padding:12px 12px 0;color:var(--muted)}
+.map-frame{width:100%;height:340px;border:0;margin-top:8px;border-top:1px solid var(--border)}
+@media (min-width:860px){.map-frame{height:100%}}
+
+/* footer - в стиле буше */
+.footer{
+  border-top:1px solid var(--border);
+  padding:40px 0;
+  background:var(--panel-2);
+  margin-top:80px;
+}
+.f-title{
+  font-weight:700;
+  font-size:18px;
+  color:var(--text);
+}
+.muted{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:400;
+}
+
+/* === Компактный вид адресов === */
+.branch-list.compact{ gap:10px; }
+.branch-list.compact .branch-item{
+  padding:12px;
+  border-radius:16px;
+  grid-template-columns: 1fr auto; /* текст слева, кнопки/телефон справа */
+  gap:10px;
+}
+.branch-list.compact .branch-meta .name{
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+}
+.branch-list.compact .branch-meta .addr{
+  font-size:14px;
+  color:var(--text-secondary);
+  font-weight:400;
+}
+
+.branch-list.compact .branch-phone{
+  padding:4px 8px;
+  font-size:13px;
+  border-radius:999px;
+}
+
+.branch-list.compact .branch-actions{
+  display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end;
+}
+
+/* маленькие икон-кнопки */
+.branch-list.compact .branch-actions .icon{
+  padding:6px;
+  width:34px; height:34px; min-width:34px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--border); border-radius:10px;
+  font-size:14px; line-height:1;
+  background:transparent; color:var(--text); text-decoration:none; cursor:pointer;
+}
+.branch-list.compact .branch-actions .icon:hover{ border-color:var(--border-2); }
+
+/* === Контакты: адреса в 2 колонки, аккуратные карточки, карта чуть шире === */
+
+/* Сетка секции контактов - улучшенный layout */
+.contacts-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+@media (min-width: 980px){
+  .contacts-layout {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 32px;
+  }
+}
+
+/* Список адресов - вертикальный список для удобного выбора */
+.branch-list.compact{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* Карточка адреса - современный дизайн с удобным выбором */
+.branch-list.compact .branch-item{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:20px;
+  border-radius:16px;
+  background:var(--panel);
+  border:2px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  transition:var(--transition);
+  cursor:pointer;
+  overflow:hidden;
+}
+.branch-list.compact .branch-item::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:transparent;
+  transition:var(--transition);
+}
+.branch-list.compact .branch-item:hover{
+  border-color:var(--border-2);
+  box-shadow:var(--shadow-md);
+  transform:translateX(4px);
+  background:var(--panel-2);
+}
+.branch-list.compact .branch-item:hover::before{
+  background:var(--brand);
+}
+.branch-list.compact .branch-item.active{
+  border-color:var(--brand);
+  box-shadow:0 0 0 3px rgba(200,150,95,0.12), var(--shadow-md);
+  background:linear-gradient(to right, rgba(200,150,95,0.05) 0%, var(--panel) 4%);
+  transform:translateX(4px);
+}
+.branch-list.compact .branch-item.active::before{
+  background:var(--brand);
+  width:4px;
+}
+
+/* Мета-информация адреса */
+.branch-list.compact .branch-meta{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  flex:1;
+}
+.branch-list.compact .branch-meta .name{
+  font-weight:700;
+  font-size:16px;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.branch-list.compact .branch-meta .name::before{
+  content:'📍';
+  font-size:14px;
+  opacity:0.6;
+}
+.branch-list.compact .branch-item.active .branch-meta .name::before{
+  opacity:1;
+}
+.branch-list.compact .branch-meta .addr{
+  font-size:14px;
+  color:var(--text-secondary);
+  font-weight:400;
+  line-height:1.5;
+}
+
+/* Телефон и действия - горизонтальная компоновка */
+.branch-list.compact .branch-phone{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  align-self:flex-start;
+}
+.phone-picker-btn{
+  padding:8px 16px;
+  font-size:14px;
+  font-weight:600;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--panel-2);
+  color:var(--text);
+  white-space:nowrap;
+  transition:var(--transition);
+  cursor:pointer;
+  border:none;
+  font-family:inherit;
+}
+.phone-picker-btn:hover{
+  background:var(--brand);
+  color:#fff;
+  border-color:var(--brand);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+}
+.phone-picker-btn:active{
+  transform:translateY(0);
+}
+.branch-list.compact .branch-phone a{
+  color:inherit;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* Действия - компактные кнопки */
+.branch-list.compact .branch-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:4px;
+}
+
+/* Кнопки-иконки — современный стиль */
+.branch-list.compact .icon{
+  width:36px;
+  height:36px;
+  min-width:36px;
+  padding:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:16px;
+  line-height:1;
+  background:var(--panel-2);
+  color:var(--text-secondary);
+  cursor:pointer;
+  transition:var(--transition);
+  text-decoration:none;
+}
+.branch-list.compact .icon:hover{
+  background:var(--brand);
+  color:#fff;
+  border-color:var(--brand);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-sm);
+}
+.branch-list.compact .icon:active{
+  transform:translateY(0);
+}
+
+/* Чтобы не дублировались эмодзи из старых правил ::before */
+.branch-list.compact .branch-actions a[href^="tel:"]::before,
+.branch-list.compact .branch-actions a[href*="wa.me"]::before{ content:none; }
+
+/* iOS-стиль модального окна выбора адреса */
+.branch-picker-modal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events:none;
+}
+.branch-picker-modal.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:all;
+}
+.branch-picker-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.branch-picker-container{
+  position:relative;
+  width:100%;
+  max-width:500px;
+  max-height:70vh;
+  background:var(--panel);
+  border-radius:24px 24px 0 0;
+  box-shadow:0 -4px 24px rgba(0,0,0,0.2);
+  transform:translateY(100%);
+  transition:transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  display:flex;
+  flex-direction:column;
+  z-index:1;
+}
+.branch-picker-modal.active .branch-picker-container{
+  transform:translateY(0);
+}
+.branch-picker-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 24px;
+  border-bottom:1px solid var(--border);
+  background:var(--panel-2);
+  border-radius:24px 24px 0 0;
+}
+.branch-picker-header h3{
+  margin:0;
+  font-size:20px;
+  font-weight:700;
+  color:var(--text);
+}
+.branch-picker-close{
+  width:32px;
+  height:32px;
+  border:none;
+  background:transparent;
+  color:var(--text-secondary);
+  font-size:20px;
+  cursor:pointer;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:var(--transition);
+  padding:0;
+}
+.branch-picker-close:hover{
+  background:var(--panel-3);
+  color:var(--text);
+}
+.branch-picker-scroll{
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  padding:8px 0;
+  max-height:calc(70vh - 80px);
+}
+/* iOS-стиль скролла */
+.branch-picker-scroll::-webkit-scrollbar{
+  width:4px;
+}
+.branch-picker-scroll::-webkit-scrollbar-track{
+  background:transparent;
+}
+.branch-picker-scroll::-webkit-scrollbar-thumb{
+  background:var(--border-2);
+  border-radius:2px;
+}
+.branch-picker-scroll::-webkit-scrollbar-thumb:hover{
+  background:var(--muted);
+}
+.branch-picker-item{
+  padding:16px 24px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:var(--transition);
+  position:relative;
+}
+.branch-picker-item:last-child{
+  border-bottom:none;
+}
+.branch-picker-item:hover{
+  background:var(--panel-2);
+}
+.branch-picker-item.active{
+  background:linear-gradient(to right, rgba(200,150,95,0.1) 0%, var(--panel) 10%);
+  border-left:4px solid var(--brand);
+}
+.branch-picker-item.active::before{
+  content:'✓';
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--brand);
+  font-size:18px;
+  font-weight:700;
+}
+.branch-picker-name{
+  font-size:16px;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:4px;
+}
+.branch-picker-addr{
+  font-size:14px;
+  color:var(--text-secondary);
+  font-weight:400;
+}
+.branch-picker-item.active .branch-picker-name{
+  color:var(--brand);
+}
+
+/* Стили для модального окна выбора номера телефона */
+.phone-picker-modal{
+  z-index:1001;
+}
+.phone-picker-item{
+  padding:18px 24px;
+  border-bottom:1px solid var(--border);
+  transition:var(--transition);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.phone-picker-item:last-child{
+  border-bottom:none;
+}
+.phone-picker-item:hover{
+  background:var(--panel-2);
+}
+.phone-picker-item.active{
+  background:linear-gradient(to right, rgba(200,150,95,0.1) 0%, var(--panel) 10%);
+  border-left:4px solid var(--brand);
+}
+.phone-picker-item.active::before{
+  content:'✓';
+  position:absolute;
+  left:24px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--brand);
+  font-size:18px;
+  font-weight:700;
+}
+.phone-picker-item-content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  margin-left:28px;
+}
+.phone-picker-item.active .phone-picker-item-content{
+  margin-left:32px;
+}
+.phone-picker-name{
+  font-size:15px;
+  font-weight:600;
+  color:var(--text);
+}
+.phone-picker-number{
+  font-size:18px;
+  font-weight:700;
+  color:var(--brand);
+  font-family:system-ui, -apple-system, sans-serif;
+  letter-spacing:0.5px;
+}
+.phone-picker-item.active .phone-picker-name{
+  color:var(--brand);
+}
+.phone-picker-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.phone-picker-action-btn{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  text-decoration:none;
+  transition:var(--transition);
+  border:1px solid var(--border);
+  background:var(--panel-2);
+}
+.phone-picker-action-btn.call-btn{
+  background:var(--brand);
+  color:#fff;
+  border-color:var(--brand);
+}
+.phone-picker-action-btn.call-btn:hover{
+  background:var(--brand-2);
+  transform:scale(1.1);
+  box-shadow:var(--shadow-sm);
+}
+.phone-picker-action-btn.whatsapp-btn{
+  background:#25D366;
+  color:#fff;
+  border-color:#25D366;
+}
+.phone-picker-action-btn.whatsapp-btn:hover{
+  background:#1ebe57;
+  transform:scale(1.1);
+  box-shadow:var(--shadow-sm);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 640px){
+  .branch-list.compact .branch-item{
+    padding:16px;
+  }
+  .branch-list.compact .branch-phone{
+    width:100%;
+    justify-content:center;
+  }
+  .branch-list.compact .branch-actions{
+    justify-content:center;
+    width:100%;
+  }
+  .map-frame{
+    height:300px;
+  }
+  .map-header{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+  .branch-picker-btn{
+    width:100%;
+    justify-content:center;
+  }
+  .branch-picker-container{
+    max-height:85vh;
+    border-radius:20px 20px 0 0;
+  }
+  .branch-picker-scroll{
+    max-height:calc(85vh - 80px);
+  }
+  .phone-picker-item{
+    padding:16px 20px;
+    gap:12px;
+  }
+  .phone-picker-item-content{
+    margin-left:24px;
+  }
+  .phone-picker-item.active .phone-picker-item-content{
+    margin-left:28px;
+  }
+  .phone-picker-action-btn{
+    width:40px;
+    height:40px;
+    font-size:18px;
+  }
+  .phone-picker-number{
+    font-size:16px;
+  }
+}
+/* === Глобальный задний фон: мягкая текстура + виньетка === */
+
+/* === Задний фон: текстура + мягкая виньетка === */
+:root{
+  --bg-texture: url("cotolog/fon.png"); /* путь без первого "/" */
+}
+
+html{ background-color: var(--bg); }
+body{ background: transparent; position: relative; }
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(212,165,116,0.05) 0%, rgba(0,0,0,0) 60%),
+    var(--bg-texture);
+  background-repeat:no-repeat,repeat;
+  background-size:auto,320px 320px;
+  opacity:.15;
+  filter:saturate(.8) contrast(1.05);
+}
+
+.product-card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  padding:16px;
+  color:var(--text);
+  text-decoration:none;
+}
+.product-card h3{
+  margin:4px 0;
+  font-size:18px;
+  font-weight:700;
+  color:var(--text);
+}
+.product-card p{
+  font-size:15px;
+  color:var(--text-secondary);
+  font-weight:400;
+  line-height:1.6;
+}
+.product-card span{
+  margin-top:auto;
+  color:var(--brand);
+  font-weight:700;
+  font-size:16px;
+}
+
+.about-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.about-list {
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  color: var(--text-secondary);
+  list-style-type: "🍰 ";
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.vk-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: #f7c08a;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.vk-link:hover {
+  color: #ffdfb0;
+  text-shadow: 0 0 6px rgba(255, 196, 109, 0.7);
+}
+
+.vk-icon {
+  width: 22px;
+  height: 22px;
+  filter: brightness(1.2);
+}
+.logo {
+  width: 70px;              
+  height: 70px;
+  border-radius: 12px;       
+  overflow: hidden;         
+  background: var(--panel); 
+  padding: 8px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.logo:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.logo img {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    /* телефоны — всегда 2 карточки */
+.cards-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* планшеты и ПК — 3 карточки */
+@media (min-width: 980px) {
+    .cards-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+}
+.hero-card {
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* заполнение без искажений */
+  object-position: center; /* центрируем фото */
+  display: block;
+}
+/* HERO — базовый стиль уже есть, ниже мобильная адаптация */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .hero-card {
+    aspect-ratio: 1 / 1; /* квадратная рамка — выглядит аккуратно */
+    border-radius: 20px;
+  }
+
+  .hero-img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero .grid-2 {
+    grid-template-columns: 1fr; /* текст сверху, фото снизу */
+    gap: 32px;
+  }
+}
+
+.master-contact {
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.master-contact:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+}
+
+.master-contact h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.master-contact p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.phone-btn {
+  display: inline-block;
+  background: #ff7b34;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.phone-btn:hover {
+  background: #ff8f50;
+  transform: translateY(-2px);
+}
+.phone-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 12px;
+  border: none;
+  box-shadow: var(--shadow-md);
+  user-select: none;
+  -webkit-user-select: none;
+  caret-color: transparent;
+  transition: var(--transition);
+}
+.phone-btn:hover {
+  background: var(--brand-2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.phone-btn:focus {
+  outline: none;          /* Убирает рамку при нажатии */
+}
+
+/* Общие стили для заголовков */
+h1, h2, h3 {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+h2, h3, h1, p, .section-head, .order-title {
+  caret-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.phone-btn {
+  caret-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.order-section * {
+  cursor: default !important;
+}
+/* === Компактный блок заказа тортов === */
+.custom-order-box {
+  max-width: 600px;
+  margin: 40px auto 0;
+  padding: 40px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+}
+.custom-order-box:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+}
+
+.custom-order-box h3 {
+  margin: 0 0 12px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.custom-order-box p {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.custom-order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--brand);
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.custom-order-btn:hover {
+  background: var(--brand-2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.phone-ico {
+  font-size: 18px;
+}
+
+/* Кнопка WhatsApp */
+.custom-order-btn.whatsapp {
+    background: #25D366;        /* фирменный зеленый */
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.custom-order-btn.whatsapp:hover {
+    background: #1ebe57;
+}
+
+/* Иконка */
+.wa-ico {
+    font-size: 20px;
+}
+/* Контактные карточки — премиальный компактный вид */
+.branch-list.compact {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 800px) {
+  .branch-list.compact {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.branch-item {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.branch-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.branch-meta .name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.branch-meta .addr {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Телефон рядом, компактно */
+.branch-phone a {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 12px;
+  background: #ff7a30;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+/* Кнопки справа */
+.branch-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.branch-actions .icon {
+  width: 36px;
+  height: 36px;
+  background: var(--panel-2);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+/* Карта */
+.map-card {
+  background: var(--panel);
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+.map-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.map-frame {
+  width: 100%;
+  height: 330px;
+  border-radius: 14px;
+  border: none;
+}
+
+/* === Компактные карточки адресов === */
+
+.branch-list.compact{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+@media (min-width:980px){
+  .branch-list.compact{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+.branch-list.compact .branch-item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  grid-template-areas:
+    "name phone"
+    "addr icons";
+  gap:8px 12px;
+  padding:14px;
+  border-radius:16px;
+  background:var(--panel);
+  border:1px solid var(--border);
+}
+
+.branch-list.compact .branch-meta .name{
+  grid-area:name;
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+}
+.branch-list.compact .branch-meta .addr{
+  grid-area:addr;
+  font-size:14px;
+  color:var(--text-secondary);
+  font-weight:400;
+}
+
+.branch-list.compact .branch-phone{
+  grid-area:phone;
+  justify-self:end;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  font-size:13px;
+}
+
+.branch-list.compact .branch-actions{
+  grid-area:icons;
+  display:flex;
+  gap:6px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+.branch-list.compact .icon{
+  width:28px; height:28px;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--border);
+  border-radius:50%;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.map-card{
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:var(--panel);
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  transition:var(--transition);
+  position:sticky;
+  top:100px;
+  height:fit-content;
+}
+@media (max-width: 980px){
+  .map-card{
+    position:relative;
+    top:0;
+  }
+}
+.map-card:hover{
+  box-shadow:var(--shadow-lg);
+}
+
+.map-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid var(--border);
+  background:var(--panel-2);
+  gap:12px;
+}
+.map-title{
+  color:var(--text);
+  font-size:16px;
+  font-weight:600;
+  margin:0;
+  flex:1;
+}
+.branch-picker-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 16px;
+  background:var(--brand);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:var(--transition);
+  white-space:nowrap;
+}
+.branch-picker-btn:hover{
+  background:var(--brand-2);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+}
+.branch-picker-btn:active{
+  transform:translateY(0);
+}
+
+.map-frame{
+  width:100%;
+  height:400px;
+  border:0;
+  display:block;
+}
+@media (min-width:980px){
+  .map-frame{
+    height:500px;
+  }
+}
+
+/* Старые дублирующиеся стили удалены - используются новые стили выше для .branch-list.compact */

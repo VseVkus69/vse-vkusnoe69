@@ -1,6 +1,7 @@
 // ===== Мобильное меню + плавный скролл =====
 const mobileNav = document.getElementById('mobileNav');
 const burger = document.getElementById('burger');
+const header = document.querySelector('.header');
 
 function closeMobile(){ if (mobileNav) mobileNav.style.display = 'none'; }
 function toggleMobile(){ if (mobileNav) mobileNav.style.display = (mobileNav.style.display === 'block') ? 'none' : 'block'; }
@@ -8,11 +9,29 @@ function toggleMobile(){ if (mobileNav) mobileNav.style.display = (mobileNav.sty
 if (burger) burger.addEventListener('click', toggleMobile);
 if (mobileNav) mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
 
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  if (header) {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+});
+
+// Smooth scroll для якорных ссылок
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const id = link.getAttribute('href');
+    if (id === '#') return;
     const el = document.querySelector(id);
-    if (el) { e.preventDefault(); el.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    if (el) { 
+      e.preventDefault(); 
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
   });
 });
 
@@ -46,7 +65,6 @@ const branches = [
   { id:'levit', name:'ул. Левитана', address:'ул. Левитана 58к1', phone:'+79201788752' }
 ];
 
-
 const branchList = document.getElementById('branchList');
 const mapTitle   = document.getElementById('mapTitle');
 const mapFrame   = document.getElementById('mapFrame');
@@ -57,69 +75,108 @@ function embedSrcByAddress(addr){
   return 'https://www.google.com/maps?q=' + encodeURIComponent('Тверь ' + addr) + '&output=embed';
 }
 
-
-
-
-
-function renderBranches(){
-  if (!branchList) return;
-  branchList.innerHTML = '';
-  branches.forEach(b=>{
-    const li = document.createElement('li');
-    li.className = 'branch-item' + (b.id===activeBranchId ? ' active' : '');
-
-    const meta = document.createElement('div');
-    meta.className = 'branch-meta';
-    meta.innerHTML = `<div class="name">${b.name}</div><div class="addr">${b.address}</div>`;
-
-    const right = document.createElement('div');
-    right.className = 'branch-right';
-
-    const phone = document.createElement('div');
-    phone.className = 'branch-phone';
-    const tel = (b.phone||'').replace(/[^+\d]/g,'');
-    phone.innerHTML = `<a href="tel:${tel}">${b.phone||''}</a>`;
-
-    const actions = document.createElement('div');
-    actions.className = 'branch-actions';
-
-    const mkBtn = (tag, label, title, href, onClick)=>{
-      const el = document.createElement(tag);
-      el.className = 'icon';
-      el.textContent = label;
-      el.title = title;
-      if(href){ el.href = href; el.target = '_blank'; el.rel = 'noreferrer'; }
-      if(onClick){ el.addEventListener('click', onClick); }
-      return el;
-    };
-
-    const btnShow = mkBtn('button','📍','Показать на карте', null, ()=> setActive(b.id));
-    const btnCall = mkBtn('a','📞','Позвонить','tel:'+tel);
-    const btnWa   = mkBtn('a','💬','WhatsApp','https://wa.me/'+(b.phone||'').replace(/\D/g,''));
-    const btnG    = mkBtn('a','G','Google Maps','https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(b.address));
-    const btnY    = mkBtn('a','Y','Яндекс.Карты','https://yandex.ru/maps/?text='+encodeURIComponent(b.address));
-
-    actions.append(btnShow, btnCall, btnWa, btnG, btnY);
-    right.append(phone, actions);
-
-    li.append(meta, right);
-    branchList.appendChild(li);
-  });
-}
-
 function setActive(id){
   activeBranchId = id;
   const b = branches.find(x=>x.id===id) || branches[0];
   if (mapTitle) mapTitle.textContent = `${b.name}: ${b.address}`;
   if (mapFrame) mapFrame.src = embedSrcByAddress(b.address);
-  renderBranches();
+  closeBranchesModalFunc();
+}
+
+// ===== Модальное окно с филиалами =====
+const showBranchesBtn = document.getElementById('showBranchesBtn');
+const branchesModal = document.getElementById('branchesModal');
+const closeBranchesModal = document.getElementById('closeBranchesModal');
+const branchesModalList = document.getElementById('branchesModalList');
+
+function openBranchesModal(){
+  if (branchesModal) {
+    branchesModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    renderBranchesModal();
+  }
+}
+
+function closeBranchesModalFunc(){
+  if (branchesModal) {
+    branchesModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function renderBranchesModal(){
+  if (!branchesModalList) return;
+  branchesModalList.innerHTML = '';
+  
+  branches.forEach(b=>{
+    const tel = (b.phone||'').replace(/[^+\d]/g,'');
+    
+    const item = document.createElement('div');
+    item.className = 'branch-modal-item';
+    
+    const name = document.createElement('div');
+    name.className = 'branch-modal-name';
+    name.textContent = b.name;
+    
+    const address = document.createElement('div');
+    address.className = 'branch-modal-address';
+    address.textContent = b.address;
+    address.style.cursor = 'pointer';
+    address.addEventListener('click', ()=> setActive(b.id));
+    
+    const phoneLink = document.createElement('a');
+    phoneLink.className = 'branch-modal-phone';
+    phoneLink.href = `tel:${tel}`;
+    phoneLink.textContent = b.phone || '';
+    
+    item.appendChild(name);
+    item.appendChild(address);
+    item.appendChild(phoneLink);
+    branchesModalList.appendChild(item);
+  });
 }
 
 // ===== Init =====
 (function init(){
-  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  const y = document.getElementById('year'); 
+  if (y) y.textContent = new Date().getFullYear();
+  
   ensureCardImages();
-  renderBranches();
   if (branches[0]) setActive(branches[0].id);
-})();
+  
+  // Обработчики для модального окна
+  if (showBranchesBtn) showBranchesBtn.addEventListener('click', openBranchesModal);
+  if (closeBranchesModal) closeBranchesModal.addEventListener('click', closeBranchesModalFunc);
+  if (branchesModal) {
+    branchesModal.querySelector('.modal-overlay')?.addEventListener('click', closeBranchesModalFunc);
+  }
+  
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e)=>{
+    if (e.key === 'Escape' && branchesModal?.classList.contains('active')) {
+      closeBranchesModalFunc();
+    }
+  });
+  
+  // Инициализация Intersection Observer для анимаций
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Наблюдаем за секциями и карточками
+  document.querySelectorAll('section, .card').forEach(el => {
+    observer.observe(el);
+  });
+})();

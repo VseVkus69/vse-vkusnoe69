@@ -1,0 +1,136 @@
+.card {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+  position: relative;
+}
+
+.popular-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--brand);
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.favorite-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+.btn-quick-view {
+  padding: 8px 12px;
+  background: var(--panel-3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+
+.btn-quick-view:hover {
+  background: var(--panel);
+  border-color: var(--border-2);
+}
+
+.card-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.btn-add-to-cart {
+  padding: 8px 16px;
+  background: var(--brand);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-add-to-cart:hover {
+  background: var(--brand-2);
+  transform: scale(1.05);
+}
+
+.btn-add-to-cart:active {
+  transform: scale(0.98);
+}
+
+.weight {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+@media (max-width: 640px) {
+  .card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-add-to-cart {
+    width: 100%;
+  }
+}
+
