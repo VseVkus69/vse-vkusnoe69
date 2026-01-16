@@ -111,8 +111,8 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvet
 .cards-5{grid-template-columns:1fr 1fr}
 @media (min-width:980px){.cards-5{grid-template-columns:repeat(5,1fr)}}
 
-.card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--border);border-radius:24px;overflow:hidden;color:inherit;text-decoration:none;height:100%}
-.card-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--border);border-radius:24px;overflow:hidden;color:inherit;text-decoration:none}
+.card-body{padding:16px;display:flex;flex-direction:column;gap:6px}
 .tag{font-size:12px;color:var(--muted)}
 
 /* изображение держит высоту; фото не тянет сетку */
@@ -807,6 +807,27 @@ h2, h3, h1, p, .section-head, .order-title {
     width: 100%;
   }
 }
+/* ===== Цены на карточках ===== */
+.product-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .product-price {
+    font-size: 20px;
+  }
+}
 
 /* ===== Модальное окно ===== */
 .modal {
@@ -952,35 +973,13 @@ h2, h3, h1, p, .section-head, .order-title {
   }
 }
 
-/* ===== Цены на карточках ===== */
-.product-price {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.product-price span {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-@media (max-width: 768px) {
-  .product-price {
-    font-size: 20px;
-  }
-}
-
 /* ===== Плавающая кнопка горячей линии ===== */
 .hotline-btn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: linear-gradient(135deg, #8B4513, #A0522D);
-  color: #fff;
+  background: #ffffff;
+  color: #1a0c06;
   padding: 16px 24px;
   border-radius: 50px;
   display: flex;
@@ -989,16 +988,18 @@ h2, h3, h1, p, .section-head, .order-title {
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
-  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideInUp 0.6s ease-out;
+  border: 2px solid rgba(26, 12, 6, 0.1);
 }
 
 .hotline-btn:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(139, 69, 19, 0.5);
-  background: linear-gradient(135deg, #A0522D, #8B4513);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  background: #f5f5f5;
+  border-color: rgba(26, 12, 6, 0.15);
 }
 
 .hotline-btn:active {
@@ -1067,7 +1068,7 @@ h2, h3, h1, p, .section-head, .order-title {
   }
   
   .hotline-text {
-    display: none; /* Скрываем текст на маленьких экранах */
+    display: none;
   }
   
   .hotline-icon {
@@ -1075,10 +1076,35 @@ h2, h3, h1, p, .section-head, .order-title {
   }
   
   .hotline-btn {
-    border-radius: 50%; /* Делаем круглой */
+    border-radius: 50%;
     width: 56px;
     height: 56px;
     padding: 0;
     justify-content: center;
   }
+}
+
+/* Telegram кнопка */
+.custom-order-btn.telegram {
+    background: #0088cc;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.custom-order-btn.telegram:hover {
+    background: #006699;
+}
+
+/* Иконка Telegram */
+.tg-ico {
+    font-size: 20px;
 }
