@@ -109,8 +109,7 @@ function initYandexMap() {
           `,
           hintContent: b.mapName || b.name
         }, {
-          preset: 'islands#brownFoodIcon',
-          iconColor: '#8B4513'
+          preset: 'islands#redDotIcon'
         });
 
         yandexMap.geoObjects.add(placemark);
