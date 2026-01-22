@@ -250,23 +250,35 @@ function renderBranchesModal(){
   
   // Инициализация Intersection Observer для анимаций
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -30px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
+        // Если это секция - анимируем сразу
+        if (entry.target.tagName === 'SECTION') {
           entry.target.classList.add('animate-in');
-        }, index * 100);
-        observer.unobserve(entry.target);
+          observer.unobserve(entry.target);
+        } else {
+          // Для карточек - находим все карточки в родительском контейнере
+          const parent = entry.target.parentElement;
+          const cards = Array.from(parent.querySelectorAll('.card, .about-feature-item'));
+          const cardIndex = cards.indexOf(entry.target);
+          
+          setTimeout(() => {
+            entry.target.classList.add('animate-in');
+          }, cardIndex * 30); // Ускорил анимацию
+          
+          observer.unobserve(entry.target);
+        }
       }
     });
   }, observerOptions);
 
-  // Наблюдаем за секциями и карточками
-  document.querySelectorAll('section, .card').forEach(el => {
+  // Наблюдаем за секциями, карточками товаров и карточками преимуществ
+  document.querySelectorAll('section, .card, .about-feature-item').forEach(el => {
     observer.observe(el);
   });
 })();
