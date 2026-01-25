@@ -246,6 +246,127 @@ function renderBranchesModal(){
     if (e.key === 'Escape' && branchesModal?.classList.contains('active')) {
       closeBranchesModalFunc();
     }
+    if (e.key === 'Escape' && photoViewerModal?.classList.contains('active')) {
+      closePhotoViewer();
+    }
+    // Навигация стрелками
+    if (photoViewerModal?.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') showPrevPhoto();
+      if (e.key === 'ArrowRight') showNextPhoto();
+    }
+  });
+  
+  // ===== Просмотр фотографий тортов =====
+  const photoViewerModal = document.getElementById('photoViewerModal');
+  const closePhotoViewerBtn = document.getElementById('closePhotoViewer');
+  const photoViewerImage = document.getElementById('photoViewerImage');
+  const photoCaption = document.getElementById('photoCaption');
+  const photoCounter = document.getElementById('photoCounter');
+  const photoPrevBtn = document.getElementById('photoPrev');
+  const photoNextBtn = document.getElementById('photoNext');
+  
+  let currentGallery = [];
+  let currentPhotoIndex = 0;
+  
+  // Переменные для свайпа
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  function openPhotoViewer(gallery, startIndex = 0) {
+    currentGallery = gallery;
+    currentPhotoIndex = startIndex;
+    showCurrentPhoto();
+    if (photoViewerModal) {
+      photoViewerModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closePhotoViewer() {
+    if (photoViewerModal) {
+      photoViewerModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function showCurrentPhoto() {
+    if (currentGallery.length === 0) return;
+    const photo = currentGallery[currentPhotoIndex];
+    if (photoViewerImage) photoViewerImage.src = photo.src;
+    if (photoCaption) photoCaption.textContent = photo.caption;
+    if (photoCounter) photoCounter.textContent = `${currentPhotoIndex + 1} / ${currentGallery.length}`;
+    
+    // Показываем/скрываем кнопки навигации
+    if (photoPrevBtn) photoPrevBtn.style.display = currentGallery.length > 1 ? 'flex' : 'none';
+    if (photoNextBtn) photoNextBtn.style.display = currentGallery.length > 1 ? 'flex' : 'none';
+  }
+
+  function showPrevPhoto() {
+    currentPhotoIndex = (currentPhotoIndex - 1 + currentGallery.length) % currentGallery.length;
+    showCurrentPhoto();
+  }
+
+  function showNextPhoto() {
+    currentPhotoIndex = (currentPhotoIndex + 1) % currentGallery.length;
+    showCurrentPhoto();
+  }
+  
+  // Обработка свайпа
+  function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }
+
+  function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50; // минимальное расстояние для свайпа
+    const horizontalDiff = touchEndX - touchStartX;
+    const verticalDiff = Math.abs(touchEndY - touchStartY);
+    
+    // Проверяем, что свайп горизонтальный (не вертикальный)
+    if (verticalDiff < 100) {
+      if (horizontalDiff > swipeThreshold) {
+        // Свайп вправо - предыдущее фото
+        showPrevPhoto();
+      } else if (horizontalDiff < -swipeThreshold) {
+        // Свайп влево - следующее фото
+        showNextPhoto();
+      }
+    }
+  }
+
+  // Обработчики событий
+  if (closePhotoViewerBtn) closePhotoViewerBtn.addEventListener('click', closePhotoViewer);
+  if (photoPrevBtn) photoPrevBtn.addEventListener('click', showPrevPhoto);
+  if (photoNextBtn) photoNextBtn.addEventListener('click', showNextPhoto);
+  if (photoViewerModal) {
+    photoViewerModal.querySelector('.modal-overlay')?.addEventListener('click', closePhotoViewer);
+    
+    // Добавляем обработчики свайпов
+    photoViewerModal.addEventListener('touchstart', handleTouchStart, { passive: true });
+    photoViewerModal.addEventListener('touchend', handleTouchEnd, { passive: true });
+  }
+
+  // Добавляем обработчики для всех карточек с галереей
+  document.querySelectorAll('.card-with-gallery').forEach(card => {
+    const galleryData = card.getAttribute('data-gallery');
+    if (galleryData) {
+      try {
+        const gallery = JSON.parse(galleryData);
+        card.querySelector('.card-img')?.addEventListener('click', () => {
+          openPhotoViewer(gallery, 0);
+        });
+      } catch (e) {
+        console.error('Ошибка парсинга галереи:', e);
+      }
+    }
   });
   
   // Инициализация Intersection Observer для анимаций

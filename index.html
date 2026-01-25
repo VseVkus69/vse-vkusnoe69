@@ -42,7 +42,7 @@
   <div class="container grid-2 gap-24 center-v">
     <div>
       <h1>«Всё вкусное» — <span>десерты, которые дарят эмоции</span></h1>
-      <p class="lead">Уютная кондитерская мастерская, где каждый десерт создаётся вручную из натуральных ингредиентов. Мы готовим сладости небольшими партиями и торты на заказ любой сложности — чтобы каждый ваш повод стал особенным.</p>
+      <p class="lead">Уютная кондитерская, где каждый десерт создаётся вручную из натуральных ингредиентов. Мы готовим сладости небольшими партиями и торты на заказ любой сложности — чтобы каждый ваш повод стал особенным.</p>
       <div class="row gap-12 wrap mt-16">
         <a href="#catalog" class="btn primary">Смотреть каталог</a>
         <a href="#about" class="btn outline">О нас</a>
@@ -225,9 +225,10 @@
     <div class="cards-3 mt-16">
 
       <!-- Торт Дуэт -->
-      <div class="card">
+      <div class="card card-with-gallery" data-gallery='[{"src":"cotolog/tort/дуэт_сайт.jpg","caption":"Торт «Дуэт»"},{"src":"разрезы тортов/DSC_0729.jpg","caption":"Разрез торта «Дуэт»"}]'>
         <div class="card-img">
           <img src="cotolog/tort/дуэт_сайт.jpg" alt="Торт Дуэт">
+          <div class="photo-badge"> 2 фото</div>
         </div>
         <div class="card-body">
           <div class="tag">Торт</div>
@@ -239,9 +240,10 @@
       </div>
 
       <!-- Торт Медовик сметанный -->
-      <div class="card">
+      <div class="card card-with-gallery" data-gallery='[{"src":"cotolog/tort/медовик_сметана_сайт.jpg","caption":"Торт «Медовик сметанный»"},{"src":"разрезы тортов/DSC_0738.jpg","caption":"Разрез торта «Медовик»"}]'>
         <div class="card-img">
           <img src="cotolog/tort/медовик_сметана_сайт.jpg" alt="Торт Медовик сметанный">
+          <div class="photo-badge"> 2 фото</div>
         </div>
         <div class="card-body">
           <div class="tag">Торт</div>
@@ -253,9 +255,10 @@
       </div>
 
       <!-- Торт Панчо -->
-      <div class="card">
+      <div class="card card-with-gallery" data-gallery='[{"src":"cotolog/tort/панчо_сайт.jpg","caption":"Торт «Панчо»"},{"src":"разрезы тортов/DSC_0736.jpg","caption":"Разрез торта «Панчо»"}]'>
         <div class="card-img">
           <img src="cotolog/tort/панчо_сайт.jpg" alt="Торт Панчо">
+          <div class="photo-badge"> 2 фото</div>
         </div>
         <div class="card-body">
           <div class="tag">Торт</div>
@@ -267,9 +270,10 @@
       </div>
 
       <!-- Торт Молочная девочка -->
-      <div class="card">
+      <div class="card card-with-gallery" data-gallery='[{"src":"cotolog/tort/devochka.jpg","caption":"Торт «Молочная девочка»"},{"src":"cotolog/tort/devochka.jpg","caption":"Разрез торта «Молочная девочка»"}]'>
         <div class="card-img">
           <img src="cotolog/tort/devochka.jpg" alt="Торт Молочная девочка">
+          <div class="photo-badge"> 2 фото</div>
         </div>
         <div class="card-body">
           <div class="tag">Торт</div>
@@ -1325,6 +1329,28 @@
     <div class="modal-body" id="branchesModalList">
       <!-- Список заполнится через JS -->
     </div>
+  </div>
+</div>
+
+<!-- Модальное окно просмотра фото торта -->
+<div id="photoViewerModal" class="modal photo-viewer-modal">
+  <div class="modal-overlay"></div>
+  <div class="photo-viewer-content">
+    <button class="modal-close photo-viewer-close" id="closePhotoViewer">&times;</button>
+    
+    <button class="photo-nav photo-nav-prev" id="photoPrev">
+      <span>‹</span>
+    </button>
+    
+    <div class="photo-viewer-main">
+      <img id="photoViewerImage" src="" alt="">
+      <div class="photo-caption" id="photoCaption"></div>
+      <div class="photo-counter" id="photoCounter">1 / 2</div>
+    </div>
+    
+    <button class="photo-nav photo-nav-next" id="photoNext">
+      <span>›</span>
+    </button>
   </div>
 </div>
 
