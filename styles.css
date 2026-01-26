@@ -366,6 +366,27 @@ body::before{
   transform: scale(1.3);
 }
 
+/* Адаптация логотипа для мобильных */
+@media (max-width: 768px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+    padding: 4px;
+  }
+  
+  .logo img {
+    transform: scale(1.2);
+  }
+  
+  .brand-title {
+    font-size: 18px;
+  }
+  
+  .brand-sub {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 768px) {
     /* телефоны — всегда 2 карточки */
 .cards-3 {

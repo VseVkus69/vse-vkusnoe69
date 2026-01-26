@@ -325,6 +325,7 @@ function renderBranchesModal(){
       // КЛИК (мобильные)
       wrapper.addEventListener('click', (e) => {
         if (isMobile() && !isDragging) {
+          e.preventDefault();
           e.stopPropagation();
           nextPhoto();
         }
@@ -342,17 +343,26 @@ function renderBranchesModal(){
       }, { passive: true });
       
       wrapper.addEventListener('touchmove', (e) => {
-        isDragging = true;
+        const moveDistance = Math.abs(e.changedTouches[0].clientX - touchStartX);
+        if (moveDistance > 5) {
+          isDragging = true;
+        }
       }, { passive: true });
       
       wrapper.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].clientX;
         const diff = touchStartX - touchEndX;
         const timeDiff = Date.now() - touchStartTime;
+        const distance = Math.abs(diff);
         
-        // Свайп должен быть быстрым и достаточно длинным
-        if (Math.abs(diff) > 50 && timeDiff < 300) {
-          e.stopPropagation();
+        // Если это короткий тап (не свайп)
+        if (distance < 10 && timeDiff < 200 && !isDragging) {
+          e.preventDefault();
+          nextPhoto();
+        }
+        // Если это свайп
+        else if (distance > 50 && timeDiff < 300) {
+          e.preventDefault();
           if (diff > 0) {
             nextPhoto();
           } else {
@@ -361,7 +371,7 @@ function renderBranchesModal(){
         }
         
         setTimeout(() => { isDragging = false; }, 100);
-      }, { passive: true });
+      }, { passive: false });
       
       // СВАЙПЫ - Mouse events (десктоп с мышью)
       let mouseDown = false;
