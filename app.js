@@ -246,126 +246,172 @@ function renderBranchesModal(){
     if (e.key === 'Escape' && branchesModal?.classList.contains('active')) {
       closeBranchesModalFunc();
     }
-    if (e.key === 'Escape' && photoViewerModal?.classList.contains('active')) {
-      closePhotoViewer();
-    }
-    // Навигация стрелками
-    if (photoViewerModal?.classList.contains('active')) {
-      if (e.key === 'ArrowLeft') showPrevPhoto();
-      if (e.key === 'ArrowRight') showNextPhoto();
-    }
   });
   
-  // ===== Просмотр фотографий тортов =====
-  const photoViewerModal = document.getElementById('photoViewerModal');
-  const closePhotoViewerBtn = document.getElementById('closePhotoViewer');
-  const photoViewerImage = document.getElementById('photoViewerImage');
-  const photoCaption = document.getElementById('photoCaption');
-  const photoCounter = document.getElementById('photoCounter');
-  const photoPrevBtn = document.getElementById('photoPrev');
-  const photoNextBtn = document.getElementById('photoNext');
-  
-  let currentGallery = [];
-  let currentPhotoIndex = 0;
-  
-  // Переменные для свайпа
-  let touchStartX = 0;
-  let touchEndX = 0;
-  let touchStartY = 0;
-  let touchEndY = 0;
-
-  function openPhotoViewer(gallery, startIndex = 0) {
-    currentGallery = gallery;
-    currentPhotoIndex = startIndex;
-    showCurrentPhoto();
-    if (photoViewerModal) {
-      photoViewerModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closePhotoViewer() {
-    if (photoViewerModal) {
-      photoViewerModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  function showCurrentPhoto() {
-    if (currentGallery.length === 0) return;
-    const photo = currentGallery[currentPhotoIndex];
-    if (photoViewerImage) photoViewerImage.src = photo.src;
-    if (photoCaption) photoCaption.textContent = photo.caption;
-    if (photoCounter) photoCounter.textContent = `${currentPhotoIndex + 1} / ${currentGallery.length}`;
-    
-    // Показываем/скрываем кнопки навигации
-    if (photoPrevBtn) photoPrevBtn.style.display = currentGallery.length > 1 ? 'flex' : 'none';
-    if (photoNextBtn) photoNextBtn.style.display = currentGallery.length > 1 ? 'flex' : 'none';
-  }
-
-  function showPrevPhoto() {
-    currentPhotoIndex = (currentPhotoIndex - 1 + currentGallery.length) % currentGallery.length;
-    showCurrentPhoto();
-  }
-
-  function showNextPhoto() {
-    currentPhotoIndex = (currentPhotoIndex + 1) % currentGallery.length;
-    showCurrentPhoto();
-  }
-  
-  // Обработка свайпа
-  function handleTouchStart(e) {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
-  }
-
-  function handleTouchEnd(e) {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
-  }
-
-  function handleSwipe() {
-    const swipeThreshold = 50; // минимальное расстояние для свайпа
-    const horizontalDiff = touchEndX - touchStartX;
-    const verticalDiff = Math.abs(touchEndY - touchStartY);
-    
-    // Проверяем, что свайп горизонтальный (не вертикальный)
-    if (verticalDiff < 100) {
-      if (horizontalDiff > swipeThreshold) {
-        // Свайп вправо - предыдущее фото
-        showPrevPhoto();
-      } else if (horizontalDiff < -swipeThreshold) {
-        // Свайп влево - следующее фото
-        showNextPhoto();
-      }
-    }
-  }
-
-  // Обработчики событий
-  if (closePhotoViewerBtn) closePhotoViewerBtn.addEventListener('click', closePhotoViewer);
-  if (photoPrevBtn) photoPrevBtn.addEventListener('click', showPrevPhoto);
-  if (photoNextBtn) photoNextBtn.addEventListener('click', showNextPhoto);
-  if (photoViewerModal) {
-    photoViewerModal.querySelector('.modal-overlay')?.addEventListener('click', closePhotoViewer);
-    
-    // Добавляем обработчики свайпов
-    photoViewerModal.addEventListener('touchstart', handleTouchStart, { passive: true });
-    photoViewerModal.addEventListener('touchend', handleTouchEnd, { passive: true });
-  }
-
-  // Добавляем обработчики для всех карточек с галереей
+  // ===== Галерея внутри карточки =====
   document.querySelectorAll('.card-with-gallery').forEach(card => {
-    const galleryData = card.getAttribute('data-gallery');
-    if (galleryData) {
-      try {
-        const gallery = JSON.parse(galleryData);
-        card.querySelector('.card-img')?.addEventListener('click', () => {
-          openPhotoViewer(gallery, 0);
-        });
-      } catch (e) {
-        console.error('Ошибка парсинга галереи:', e);
+    const wrapper = card.querySelector('.card-gallery-wrapper');
+    const galleryData = wrapper?.getAttribute('data-gallery');
+    if (!galleryData || !wrapper) return;
+    
+    try {
+      const gallery = JSON.parse(galleryData);
+      if (gallery.length < 2) return;
+      
+      const img = wrapper.querySelector('.gallery-image');
+      const dots = wrapper.querySelectorAll('.dot');
+      
+      if (!img) return;
+      
+      let currentIndex = 0;
+      let hoverInterval = null;
+      let isDragging = false;
+      let startX = 0;
+      
+      // Функция переключения фото
+      function switchPhoto(index) {
+        if (!gallery[index] || !img) return;
+        
+        img.classList.add('changing');
+        
+        setTimeout(() => {
+          img.src = gallery[index].src;
+          img.alt = gallery[index].caption;
+          
+          if (dots && dots.length > 0) {
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === index);
+            });
+          }
+          
+          img.classList.remove('changing');
+        }, 150);
+        
+        currentIndex = index;
       }
+      
+      function nextPhoto() {
+        const nextIndex = (currentIndex + 1) % gallery.length;
+        switchPhoto(nextIndex);
+      }
+      
+      function prevPhoto() {
+        const prevIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+        switchPhoto(prevIndex);
+      }
+      
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+      
+      // НАВЕДЕНИЕ НА ВСЮ КАРТОЧКУ (десктоп)
+      card.addEventListener('mouseenter', () => {
+        if (!isMobile() && !hoverInterval) {
+          hoverInterval = setInterval(nextPhoto, 1500);
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        if (hoverInterval) {
+          clearInterval(hoverInterval);
+          hoverInterval = null;
+        }
+        // Возвращаемся к первому фото
+        if (!isMobile()) {
+          switchPhoto(0);
+        }
+      });
+      
+      // КЛИК (мобильные)
+      wrapper.addEventListener('click', (e) => {
+        if (isMobile() && !isDragging) {
+          e.stopPropagation();
+          nextPhoto();
+        }
+      });
+      
+      // СВАЙПЫ - Touch events (все устройства)
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let touchStartTime = 0;
+      
+      wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartTime = Date.now();
+        isDragging = false;
+      }, { passive: true });
+      
+      wrapper.addEventListener('touchmove', (e) => {
+        isDragging = true;
+      }, { passive: true });
+      
+      wrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        const timeDiff = Date.now() - touchStartTime;
+        
+        // Свайп должен быть быстрым и достаточно длинным
+        if (Math.abs(diff) > 50 && timeDiff < 300) {
+          e.stopPropagation();
+          if (diff > 0) {
+            nextPhoto();
+          } else {
+            prevPhoto();
+          }
+        }
+        
+        setTimeout(() => { isDragging = false; }, 100);
+      }, { passive: true });
+      
+      // СВАЙПЫ - Mouse events (десктоп с мышью)
+      let mouseDown = false;
+      let mouseStartX = 0;
+      
+      wrapper.addEventListener('mousedown', (e) => {
+        if (!isMobile()) {
+          mouseDown = true;
+          mouseStartX = e.clientX;
+          isDragging = false;
+          wrapper.style.cursor = 'grabbing';
+        }
+      });
+      
+      wrapper.addEventListener('mousemove', (e) => {
+        if (mouseDown && !isMobile()) {
+          const diff = Math.abs(e.clientX - mouseStartX);
+          if (diff > 5) {
+            isDragging = true;
+          }
+        }
+      });
+      
+      wrapper.addEventListener('mouseup', (e) => {
+        if (mouseDown && !isMobile()) {
+          const diff = mouseStartX - e.clientX;
+          
+          if (Math.abs(diff) > 50) {
+            e.stopPropagation();
+            if (diff > 0) {
+              nextPhoto();
+            } else {
+              prevPhoto();
+            }
+          }
+          
+          mouseDown = false;
+          isDragging = false;
+          wrapper.style.cursor = 'pointer';
+        }
+      });
+      
+      wrapper.addEventListener('mouseleave', () => {
+        mouseDown = false;
+        isDragging = false;
+        wrapper.style.cursor = 'pointer';
+      });
+      
+    } catch (e) {
+      console.error('Ошибка парсинга галереи:', e);
     }
   });
   
