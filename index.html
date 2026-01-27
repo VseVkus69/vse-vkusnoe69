@@ -205,10 +205,42 @@
       </p>
 
       <div class="social mt-16">
-        <a href="https://vk.com/vsevkusnoetver" target="_blank" class="vk-link">
-          <img src="https://cdn-icons-png.flaticon.com/512/145/145813.png" alt="VK" class="vk-icon">
-          Мы ВКонтакте → <b>vk.com/vsevkusnoetver</b>
+        <a href="https://vk.com/vsevkusnoetver" target="_blank" class="vk-button">
+          <div class="vk-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 23.04C0 12.1788 0 6.74826 3.37413 3.37413C6.74826 0 12.1788 0 23.04 0H24.96C35.8212 0 41.2517 0 44.6259 3.37413C48 6.74826 48 12.1788 48 23.04V24.96C48 35.8212 48 41.2517 44.6259 44.6259C41.2517 48 35.8212 48 24.96 48H23.04C12.1788 48 6.74826 48 3.37413 44.6259C0 41.2517 0 35.8212 0 24.96V23.04Z" fill="white"/>
+              <path d="M25.54 34.5801C14.6 34.5801 8.3601 27.0801 8.1001 14.6001H13.5801C13.7601 23.7601 17.8201 27.6401 21.0601 28.4401V14.6001H26.1602V22.5001C29.3402 22.1601 32.6402 18.5601 33.7802 14.6001H38.8802C38.0602 19.4801 34.4602 23.0801 31.8202 24.5601C34.4602 25.7601 38.5602 28.9001 40.1202 34.5801H34.4402C33.2202 30.7801 30.1802 27.8401 26.1602 27.4401V34.5801H25.54Z" fill="#0077FF"/>
+            </svg>
+          </div>
+          <div class="vk-text">
+            <span class="vk-label">Мы ВКонтакте</span>
+            <span class="vk-name">vsevkusnoetver</span>
+          </div>
+          <div class="vk-arrow">→</div>
         </a>
+      </div>
+
+      <!-- UDS Карточка программы лояльности -->
+      <div class="uds-card mt-16">
+        <div class="uds-content">
+          <div class="uds-icon">🎁</div>
+          <div class="uds-info">
+            <h3 class="uds-title">Программа лояльности UDS</h3>
+            <p class="uds-description">Копите баллы и получайте скидки на каждую покупку!</p>
+            <a href="https://app.uds.app/m/join/kqx" target="_blank" class="uds-link-btn">
+              <span>Присоединиться к UDS</span>
+              <span class="uds-arrow">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="uds-qr">
+          <div class="uds-qr-wrapper">
+            <a href="https://app.uds.app/m/join/kqx" target="_blank" class="uds-qr-link">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://app.uds.app/m/join/kqx" alt="QR код UDS" class="uds-qr-img">
+            </a>
+            <div class="uds-qr-label">Отсканируйте QR-код</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1464,6 +1496,19 @@
       <h3>Наши филиалы</h3>
       <button class="modal-close" id="closeBranchesModal">&times;</button>
     </div>
+    
+    <!-- UDS блок в модальном окне -->
+    <div class="uds-modal-banner">
+      <div class="uds-modal-icon">🎁</div>
+      <div class="uds-modal-text">
+        <strong>Присоединяйтесь к программе лояльности UDS</strong>
+        <span>Копите баллы при каждой покупке</span>
+      </div>
+      <a href="https://app.uds.app/m/join/kqx" target="_blank" class="uds-modal-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://app.uds.app/m/join/kqx" alt="QR UDS">
+      </a>
+    </div>
+    
     <div class="modal-body" id="branchesModalList">
       <!-- Список заполнится через JS -->
     </div>
