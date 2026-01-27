@@ -1578,6 +1578,8 @@ h2, h3, h1, p, .section-head, .order-title {
   padding: 16px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 }
 
 .uds-modal-banner:hover {
@@ -1611,9 +1613,9 @@ h2, h3, h1, p, .section-head, .order-title {
 .uds-modal-qr {
   flex-shrink: 0;
   display: block;
-  padding: 8px;
+  padding: 6px;
   background: white;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 2px solid rgba(241, 112, 47, 0.2);
@@ -1626,8 +1628,8 @@ h2, h3, h1, p, .section-head, .order-title {
 }
 
 .uds-modal-qr img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   display: block;
 }
 
@@ -1635,14 +1637,14 @@ h2, h3, h1, p, .section-head, .order-title {
   .uds-modal-banner {
     flex-direction: column;
     text-align: center;
+    padding: 14px;
   }
   
   .uds-modal-qr {
-    order: -1;
+    display: none;  /* Скрываем QR на мобилках */
   }
   
-  .uds-modal-qr img {
-    width: 100px;
-    height: 100px;
+  .uds-modal-banner {
+    cursor: pointer;  /* Вся карточка кликабельна */
   }
 }
