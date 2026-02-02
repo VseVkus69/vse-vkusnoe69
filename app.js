@@ -575,26 +575,17 @@ function renderBranchesModal(){
 
 // ===== Модальное окно с номером телефона =====
 (function initPhoneModal() {
-  const hotlineBtn = document.getElementById('hotlineBtn');
+  const hotlineBtnDesktop = document.getElementById('hotlineBtnDesktop');
   const phoneModal = document.getElementById('phoneModal');
   const phoneModalOverlay = document.getElementById('phoneModalOverlay');
   const phoneModalClose = document.getElementById('phoneModalClose');
   
-  if (!hotlineBtn || !phoneModal) return;
+  if (!hotlineBtnDesktop || !phoneModal) return;
   
-  // Проверяем размер экрана
-  function isMobile() {
-    return window.innerWidth <= 768;
-  }
-  
-  // На десктопе - показываем модалку
-  hotlineBtn.addEventListener('click', (e) => {
-    if (!isMobile()) {
-      e.preventDefault();
-      phoneModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    // На мобилке ничего не делаем - сработает href="tel:"
+  // Открытие модалки по клику на desktop кнопку
+  hotlineBtnDesktop.addEventListener('click', () => {
+    phoneModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
   });
   
   // Закрытие модалки
@@ -615,23 +606,6 @@ function renderBranchesModal(){
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && phoneModal.classList.contains('active')) {
       closeModal();
-    }
-  });
-  
-  // Меняем href в зависимости от устройства
-  if (isMobile()) {
-    hotlineBtn.setAttribute('href', 'tel:+78005506923');
-  } else {
-    hotlineBtn.removeAttribute('href');
-  }
-  
-  // Обновляем при ресайзе
-  window.addEventListener('resize', () => {
-    if (isMobile()) {
-      hotlineBtn.setAttribute('href', 'tel:+78005506923');
-      closeModal();
-    } else {
-      hotlineBtn.removeAttribute('href');
     }
   });
 })();

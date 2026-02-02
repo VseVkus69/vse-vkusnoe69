@@ -1959,3 +1959,23 @@ h2, h3, h1, p, .section-head, .order-title {
     pointer-events: auto;
   }
 }
+
+/* Показываем только мобильную кнопку на телефонах */
+.hotline-btn-mobile {
+  display: flex;
+}
+
+.hotline-btn-desktop {
+  display: none;
+}
+
+/* На десктопе показываем только desktop кнопку */
+@media (min-width: 769px) {
+  .hotline-btn-mobile {
+    display: none;
+  }
+  
+  .hotline-btn-desktop {
+    display: flex;
+  }
+}
