@@ -1137,6 +1137,7 @@ h2, h3, h1, p, .section-head, .order-title {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideInUp 0.6s ease-out;
   border: 2px solid rgba(26, 12, 6, 0.1);
+  cursor: pointer;
 }
 
 .hotline-btn:hover {
@@ -1643,8 +1644,318 @@ h2, h3, h1, p, .section-head, .order-title {
   .uds-modal-qr {
     display: none;  /* Скрываем QR на мобилках */
   }
+}
+
+/* ===== Простая карусель для заказных тортов ===== */
+.simple-carousel-wrapper {
+  margin: 40px 0;
+  padding: 0 16px;
+}
+
+.simple-carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.simple-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--panel-3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--border);
+}
+
+.simple-carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.simple-carousel-item.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.simple-carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.simple-carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+}
+
+/* Кнопки навигации */
+.simple-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(241, 112, 47, 0.95);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.simple-carousel-btn:hover {
+  background: var(--brand);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 8px 24px rgba(241, 112, 47, 0.7);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.simple-carousel-btn:active {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.simple-carousel-btn.prev {
+  left: 16px;
+}
+
+.simple-carousel-btn.next {
+  right: 16px;
+}
+
+/* Индикаторы (точки) */
+.simple-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.simple-carousel-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(241, 112, 47, 0.3);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.simple-carousel-dots .dot:hover {
+  background: rgba(241, 112, 47, 0.6);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(241, 112, 47, 0.5);
+}
+
+.simple-carousel-dots .dot.active {
+  background: var(--brand);
+  width: 36px;
+  border-radius: 7px;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 12px rgba(241, 112, 47, 0.6);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .simple-carousel-container {
+    height: 500px;
+  }
   
-  .uds-modal-banner {
-    cursor: pointer;  /* Вся карточка кликабельна */
+  .simple-carousel-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+  }
+  
+  .simple-carousel-btn.prev {
+    left: 12px;
+  }
+  
+  .simple-carousel-btn.next {
+    right: 12px;
+  }
+  
+  .simple-carousel-caption {
+    font-size: 22px;
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .simple-carousel-wrapper {
+    padding: 0 8px;
+  }
+  
+  .simple-carousel-container {
+    height: 420px;
+    border-radius: 16px;
+  }
+  
+  .simple-carousel-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 26px;
+  }
+  
+  .simple-carousel-btn.prev {
+    left: 8px;
+  }
+  
+  .simple-carousel-btn.next {
+    right: 8px;
+  }
+  
+  .simple-carousel-caption {
+    font-size: 18px;
+    padding: 20px 12px;
+  }
+  
+  .simple-carousel-dots {
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .simple-carousel-dots .dot {
+    width: 11px;
+    height: 11px;
+  }
+  
+  .simple-carousel-dots .dot.active {
+    width: 28px;
+  }
+}
+
+/* ===== Модальное окно с номером телефона ===== */
+.phone-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+.phone-modal.active {
+  display: block;
+}
+
+.phone-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.phone-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--border);
+}
+
+.phone-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.phone-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.phone-modal-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.phone-modal-content h3 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  color: var(--text);
+}
+
+.phone-modal-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.phone-modal-number:hover {
+  color: var(--brand-2);
+  transform: scale(1.05);
+}
+
+.phone-modal-hint {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* На мобильных - сразу звонить, модалка не нужна */
+@media (max-width: 768px) {
+  .phone-modal {
+    display: none !important;
+  }
+  
+  .hotline-btn {
+    pointer-events: auto;
   }
 }

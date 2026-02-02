@@ -459,3 +459,179 @@ function renderBranchesModal(){
     observer.observe(el);
   });
 })();
+
+// ===== Простая карусель заказных тортов =====
+(function initSimpleCarousel() {
+  const carousel = document.getElementById('simpleCarousel');
+  if (!carousel) return;
+  
+  const items = carousel.querySelectorAll('.simple-carousel-item');
+  const dots = carousel.querySelectorAll('.simple-carousel-dots .dot');
+  const prevBtn = document.getElementById('simplePrev');
+  const nextBtn = document.getElementById('simpleNext');
+  
+  let currentIndex = 0;
+  let autoplayInterval;
+  
+  function showSlide(index) {
+    // Убираем active со всех
+    items.forEach(item => item.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Добавляем active к текущему
+    if (items[index]) items[index].classList.add('active');
+    if (dots[index]) dots[index].classList.add('active');
+    
+    currentIndex = index;
+  }
+  
+  function nextSlide() {
+    let next = (currentIndex + 1) % items.length;
+    showSlide(next);
+  }
+  
+  function prevSlide() {
+    let prev = (currentIndex - 1 + items.length) % items.length;
+    showSlide(prev);
+  }
+  
+  function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 4000);
+  }
+  
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+  
+  // Кнопки
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      stopAutoplay();
+      startAutoplay();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      stopAutoplay();
+      startAutoplay();
+    });
+  }
+  
+  // Точки
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+  
+  // Свайпы на мобилке
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      stopAutoplay();
+      startAutoplay();
+    }
+  }, { passive: true });
+  
+  // Клавиатура
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+      stopAutoplay();
+      startAutoplay();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+      stopAutoplay();
+      startAutoplay();
+    }
+  });
+  
+  // Останавливаем при наведении
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+  
+  // Запуск
+  startAutoplay();
+})();
+
+// ===== Модальное окно с номером телефона =====
+(function initPhoneModal() {
+  const hotlineBtn = document.getElementById('hotlineBtn');
+  const phoneModal = document.getElementById('phoneModal');
+  const phoneModalOverlay = document.getElementById('phoneModalOverlay');
+  const phoneModalClose = document.getElementById('phoneModalClose');
+  
+  if (!hotlineBtn || !phoneModal) return;
+  
+  // Проверяем размер экрана
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+  
+  // На десктопе - показываем модалку
+  hotlineBtn.addEventListener('click', (e) => {
+    if (!isMobile()) {
+      e.preventDefault();
+      phoneModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    // На мобилке ничего не делаем - сработает href="tel:"
+  });
+  
+  // Закрытие модалки
+  function closeModal() {
+    phoneModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  if (phoneModalClose) {
+    phoneModalClose.addEventListener('click', closeModal);
+  }
+  
+  if (phoneModalOverlay) {
+    phoneModalOverlay.addEventListener('click', closeModal);
+  }
+  
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && phoneModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+  
+  // Меняем href в зависимости от устройства
+  if (isMobile()) {
+    hotlineBtn.setAttribute('href', 'tel:+78005506923');
+  } else {
+    hotlineBtn.removeAttribute('href');
+  }
+  
+  // Обновляем при ресайзе
+  window.addEventListener('resize', () => {
+    if (isMobile()) {
+      hotlineBtn.setAttribute('href', 'tel:+78005506923');
+      closeModal();
+    } else {
+      hotlineBtn.removeAttribute('href');
+    }
+  });
+})();
