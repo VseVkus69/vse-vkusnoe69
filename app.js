@@ -496,7 +496,7 @@ function renderBranchesModal(){
   }
   
   function startAutoplay() {
-    autoplayInterval = setInterval(nextSlide, 4000);
+    autoplayInterval = setInterval(nextSlide, 2200);
   }
   
   function stopAutoplay() {
