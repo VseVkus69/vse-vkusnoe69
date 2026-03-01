@@ -157,9 +157,124 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvet
 @media (min-width:860px){.map-frame{height:100%}}
 
 /* footer */
-.footer{border-top:1px solid var(--border);padding:24px 0}
-.f-title{font-weight:800}
-.muted{color:var(--muted)}
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0 24px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-contacts-center {
+  text-align: center;
+}
+
+.footer-label {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.footer-contacts-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.contact-link:hover {
+  color: var(--brand);
+}
+
+/* Иконки соцсетей */
+.footer-social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  margin: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--text);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Логотип и копирайт внизу */
+.footer-bottom {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.footer-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.footer-notice {
+  margin-top: 8px;
+}
+
+.f-title {
+  font-weight: 800;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Мобильная версия footer */
+@media (max-width: 768px) {
+  .footer-contacts-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .contact-link {
+    font-size: 13px;
+  }
+  
+  .footer-logo-section {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
 
 /* === Компактный вид адресов === */
 .branch-list.compact{ gap:10px; }
