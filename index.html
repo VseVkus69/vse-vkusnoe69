@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="«ВсёВкусное & Шантили» — сеть кондитерских в Твери. Торты, десерты, урбечи, арахисовая паста и халва ручной работы." />
   <title>Всё вкусное — кондитерская</title>
   <link rel="icon" type="image/png" href="logo/logo.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -11,7 +12,7 @@
 
 <body>
 
-  <!-- Header -->
+  <!-- ===================== Header ===================== -->
   <header class="header">
     <div class="container row between center">
       <div class="row gap-12 center">
@@ -28,7 +29,7 @@
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <button class="burger" id="burger" aria-label="Открыть меню">
+      <button type="button" class="burger" id="burger" aria-label="Открыть меню">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -40,7 +41,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ===================== Hero ===================== -->
   <section class="hero">
     <div class="container grid-2 gap-24 center-v">
       <div>
@@ -60,12 +61,10 @@
           <img src="разрезы тортов/DSC_0741.jpg" alt="Кондитерская — аппетитный баннер" class="hero-img">
         </div>
       </div>
-
     </div>
   </section>
 
-
-  <!-- Catalog -->
+  <!-- ===================== Catalog ===================== -->
   <section id="catalog" class="section">
     <div class="container">
       <div class="section-head">
@@ -77,7 +76,7 @@
       <div class="chips">
         <a href="#torts" class="chip">Торты</a>
         <a href="#desserts" class="chip">Десерты</a>
-        <a href="#food" class="chip" style="display:none">Сытная еда</a>
+        <!-- <a href="#food" class="chip">Сытная еда</a> — раздел временно скрыт -->
         <a href="#urbech" class="chip">Урбечи</a>
         <a href="#peanut" class="chip">Арахисовая паста</a>
         <a href="#halva" class="chip">Халва</a>
@@ -88,7 +87,7 @@
 
         <a class="card" href="#torts">
           <div class="card-img">
-            <img src="cotolog/cotolog_img/иконка торт.png" alt="Торты" />
+            <img src="cotolog/cotolog_img/иконка торт.png" alt="Торты" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Торты</h3>
@@ -97,26 +96,27 @@
 
         <a class="card" href="#desserts">
           <div class="card-img">
-            <img src="cotolog/cotolog_img/иконка десерт.png" alt="Десерты" />
+            <img src="cotolog/cotolog_img/иконка десерт.png" alt="Десерты" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Десерты</h3>
           </div>
         </a>
 
-        <!-- Карточка "Еда" временно скрыта -->
-        <a class="card" href="#food" style="display:none">
+        <!-- Карточка «Еда» временно скрыта
+        <a class="card" href="#food">
           <div class="card-img">
-            <img src="cotolog/cotolog_img/eda.png" alt="Сытная еда" />
+            <img src="cotolog/cotolog_img/eda.png" alt="Сытная еда" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Еда</h3>
           </div>
         </a>
+        -->
 
         <a class="card" href="#urbech">
           <div class="card-img">
-            <img src="cotolog/cotolog_img/иконка урбеч.png" alt="Урбечи" />
+            <img src="cotolog/cotolog_img/иконка урбеч.png" alt="Урбечи" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Урбечи</h3>
@@ -125,7 +125,7 @@
 
         <a class="card" href="#peanut">
           <div class="card-img">
-            <img src="cotolog/cotolog_img/иконка арах паста.png" alt="Арахисовая паста" />
+            <img src="cotolog/cotolog_img/иконка арах паста.png" alt="Арахисовая паста" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Арахисовая паста</h3>
@@ -134,19 +134,24 @@
 
         <a class="card" href="#halva">
           <div class="card-img">
-            <img src="cotolog/cotolog_img/иконка халва.png" alt="Халва" />
+            <img src="cotolog/cotolog_img/иконка халва.png" alt="Халва" loading="lazy">
           </div>
           <div class="card-body">
             <h3>Халва</h3>
           </div>
         </a>
+
+      </div>
+    </div>
   </section>
 
+  <!-- ===================== About ===================== -->
   <section id="about" class="section alt">
     <div class="container grid-2 gap-24 center-v">
       <div class="placeholder">
-        <img src="logo/photo_2025-12-06_23-55-43.jpg" alt="Фото кондитерской" />
+        <img src="logo/photo_2025-12-06_23-55-43.jpg" alt="Фото кондитерской" loading="lazy">
       </div>
+
       <div>
         <div class="section-head">
           <div class="section-sub">Философия вкуса</div>
@@ -154,8 +159,8 @@
         </div>
 
         <p class="about-text mt-16">
-          Добро пожаловать в нашу сеть кондитерских <b>«Все Вкусное&Шантили»</b>, где нет места фабричным полуфабрикатам
-          и искусственным вкусам.
+          Добро пожаловать в нашу сеть кондитерских <b>«ВсёВкусное & Шантили»</b>, где нет места фабричным
+          полуфабрикатам и искусственным вкусам.
         </p>
 
         <p class="about-text">
@@ -165,7 +170,7 @@
         </p>
 
         <p class="about-text">
-          Мы создаем нежнейшую арахисовую пасту, полезный урбеч, воздушный зефир, а также особую халву ручного
+          Мы создаём нежнейшую арахисовую пасту, полезный урбеч, воздушный зефир, а также особую халву ручного
           вымешивания и восхитительную крем-халву.
         </p>
 
@@ -174,7 +179,9 @@
 
           <div class="about-features">
             <div class="about-feature-item">
-              <div class="about-feature-icon">✋</div>
+              <div class="about-feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
               <div>
                 <div class="about-feature-title">Только ручная работа</div>
                 <div class="about-feature-text">Каждый наш продукт — это результат кропотливого ручного труда, в который
@@ -183,16 +190,20 @@
             </div>
 
             <div class="about-feature-item">
-              <div class="about-feature-icon">🌿</div>
+              <div class="about-feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
               <div>
                 <div class="about-feature-title">Натуральные ингредиенты</div>
-                <div class="about-feature-text">Мы используем только натуральное сырье: отборную муку, свежие яйца,
+                <div class="about-feature-text">Мы используем только натуральное сырьё: отборную муку, свежие яйца,
                   натуральное сливочное масло, сливки, ягоды, орехи и настоящий шоколад.</div>
               </div>
             </div>
 
             <div class="about-feature-item">
-              <div class="about-feature-icon">🎨</div>
+              <div class="about-feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
               <div>
                 <div class="about-feature-title">Индивидуальный подход</div>
                 <div class="about-feature-text">Мечтаете об уникальном торте? Мы с радостью воплотим вашу идею в жизнь!
@@ -202,7 +213,9 @@
             </div>
 
             <div class="about-feature-item">
-              <div class="about-feature-icon">✓</div>
+              <div class="about-feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
               <div>
                 <div class="about-feature-title">Прозрачность</div>
                 <div class="about-feature-text">Мы всегда расскажем, из чего сделан ваш десерт. Вы точно знаете, что
@@ -222,9 +235,9 @@
         </p>
 
         <div class="social mt-16">
-          <a href="https://vk.com/vsevkusnoetver" target="_blank" class="vk-button">
+          <a href="https://vk.com/vsevkusnoetver" target="_blank" rel="noopener" class="vk-button">
             <div class="vk-icon-wrapper">
-              <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path
                   d="M0 23.04C0 12.1788 0 6.74826 3.37413 3.37413C6.74826 0 12.1788 0 23.04 0H24.96C35.8212 0 41.2517 0 44.6259 3.37413C48 6.74826 48 12.1788 48 23.04V24.96C48 35.8212 48 41.2517 44.6259 44.6259C41.2517 48 35.8212 48 24.96 48H23.04C12.1788 48 6.74826 48 3.37413 44.6259C0 41.2517 0 35.8212 0 24.96V23.04Z"
                   fill="white" />
@@ -243,26 +256,29 @@
 
         <div class="uds-card mt-16">
           <div class="uds-content">
-            <div class="uds-icon">🎁</div>
+            <div class="uds-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>
+            </div>
             <div class="uds-info">
               <h3 class="uds-title">Программа лояльности UDS</h3>
               <p class="uds-description">Копите баллы и получайте призы!</p>
               <div class="uds-buttons">
-                <a href="https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" target="_blank" class="uds-link-btn">
+                <a href="https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" target="_blank" rel="noopener" class="uds-link-btn">
                   <span>Присоединиться к UDS</span>
                   <span class="uds-arrow">→</span>
                 </a>
-                <a href="https://t.me/vsevkusnoetver_bot?start=qnzj0029" target="_blank" class="telegram-btn">
-                  <span>💬 Telegram бот</span>
+                <a href="https://t.me/vsevkusnoetver_bot?start=qnzj0029" target="_blank" rel="noopener" class="telegram-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                  <span>Telegram-бот</span>
                 </a>
               </div>
             </div>
           </div>
           <div class="uds-qr">
             <div class="uds-qr-wrapper">
-              <a href="https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" target="_blank" class="uds-qr-link">
+              <a href="https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" target="_blank" rel="noopener" class="uds-qr-link">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029"
-                  alt="QR код UDS" class="uds-qr-img">
+                  alt="QR-код UDS" class="uds-qr-img" loading="lazy">
               </a>
               <div class="uds-qr-label">Отсканируйте QR-код</div>
             </div>
@@ -271,10 +287,9 @@
       </div>
 
     </div>
-    </div>
   </section>
 
-  <!-- Category details (anchors) -->
+  <!-- ===================== Торты и фланы ===================== -->
   <section id="torts" class="section">
     <div class="container">
       <div class="section-head">
@@ -284,11 +299,30 @@
 
       <div class="cards-3 mt-16">
 
-        <!-- Торт Дуэт -->
+        <!-- Торт «Апельсиновый» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/дуэт3.jpg","caption":"Торт «Дуэт»"},{"src":"разрезы тортов/DSC_0729.jpg","caption":"Разрез торта «Дуэт»"}]'>
-            <img class="gallery-image" src="cotolog/tort/дуэт3.jpg" alt="Торт Дуэт">
+            data-gallery='[{"src":"cotolog/tort/Торт-«Апельсиновый»3.jpg","caption":"Торт «Апельсиновый»"},{"src":"разрезы тортов/Торт_«Апельсиновый»3.jpg","caption":"Разрез торта «Апельсиновый»"}]'>
+            <img class="gallery-image" src="cotolog/tort/Торт-«Апельсиновый»3.jpg" alt="Торт «Апельсиновый»" loading="lazy">
+            <div class="gallery-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tag">Торт</div>
+            <h3>Торт «Апельсиновый»</h3>
+            <p>Шоколадный бисквит с апельсиновой пропиткой и апельсиновой панна-коттой.<br>
+              Масса — 650 г.</p>
+            <div class="product-price">910 ₽</div>
+          </div>
+        </div>
+
+        <!-- Торт «Дуэт» -->
+        <div class="card card-with-gallery">
+          <div class="card-img card-gallery-wrapper"
+            data-gallery='[{"src":"cotolog/tort/дуэт5.jpg","caption":"Торт «Дуэт»"},{"src":"разрезы тортов/DSC_0729.jpg","caption":"Разрез торта «Дуэт»"}]'>
+            <img class="gallery-image" src="cotolog/tort/дуэт5.jpg" alt="Торт «Дуэт»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -304,11 +338,11 @@
           </div>
         </div>
 
-        <!-- Торт Медовик сметанный -->
+        <!-- Торт «Медовик сметанный» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/сметаный.jpg","caption":"Торт «Медовик сметанный»"},{"src":"разрезы тортов/DSC_0738.jpg","caption":"Разрез торта «Медовик сметанный»"}]'>
-            <img class="gallery-image" src="cotolog/tort/сметаный.jpg" alt="Торт Медовик сметанный">
+            data-gallery='[{"src":"cotolog/tort/сметаный3.jpg","caption":"Торт «Медовик сметанный»"},{"src":"разрезы тортов/DSC_0738.jpg","caption":"Разрез торта «Медовик сметанный»"}]'>
+            <img class="gallery-image" src="cotolog/tort/сметаный3.jpg" alt="Торт «Медовик сметанный»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -317,17 +351,17 @@
           <div class="card-body">
             <div class="tag">Торт</div>
             <h3>Торт «Медовик сметанный»</h3>
-            <p>Медовые коржи с молочно-сливочным кремом.<br>
+            <p>Медовые коржи со сметанным кремом.<br>
               Масса — 400 г.</p>
             <div class="product-price">635 ₽</div>
           </div>
         </div>
 
-        <!-- Торт Панчо -->
+        <!-- Торт «Панчо» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/панчо.jpg","caption":"Торт «Панчо»"},{"src":"разрезы тортов/DSC_0736.jpg","caption":"Разрез торта «Панчо»"}]'>
-            <img class="gallery-image" src="cotolog/tort/панчо.jpg" alt="Торт Панчо">
+            data-gallery='[{"src":"cotolog/tort/панчо2.jpg","caption":"Торт «Панчо»"},{"src":"разрезы тортов/DSC_0736.jpg","caption":"Разрез торта «Панчо»"}]'>
+            <img class="gallery-image" src="cotolog/tort/панчо2.jpg" alt="Торт «Панчо»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -342,11 +376,11 @@
           </div>
         </div>
 
-        <!-- Торт Молочная девочка -->
+        <!-- Торт «Молочная девочка» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/девочка4.jpg","caption":"Торт «Молочная девочка»"},{"src":"cotolog/tort/девочка мол.jpg","caption":"Разрез торта «Молочная девочка»"}]'>
-            <img class="gallery-image" src="cotolog/tort/девочка4.jpg" alt="Торт Молочная девочка">
+            data-gallery='[{"src":"cotolog/tort/девочка5.jpg","caption":"Торт «Молочная девочка»"},{"src":"cotolog/tort/девочка мол.jpg","caption":"Разрез торта «Молочная девочка»"}]'>
+            <img class="gallery-image" src="cotolog/tort/девочка5.jpg" alt="Торт «Молочная девочка»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -361,11 +395,11 @@
           </div>
         </div>
 
-        <!-- Торт Чёрный лес -->
+        <!-- Торт «Чёрный лес» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/черный_лес2.jpg","caption":"Торт «Чёрный лес»"},{"src":"разрезы тортов/DSC_0735.jpg","caption":"Разрез торта «Чёрный лес»"}]'>
-            <img class="gallery-image" src="cotolog/tort/черный_лес2.jpg" alt="Торт Чёрный лес">
+            data-gallery='[{"src":"cotolog/tort/черный_лес3.jpg","caption":"Торт «Чёрный лес»"},{"src":"разрезы тортов/DSC_0735.jpg","caption":"Разрез торта «Чёрный лес»"}]'>
+            <img class="gallery-image" src="cotolog/tort/черный_лес3.jpg" alt="Торт «Чёрный лес»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -374,18 +408,18 @@
           <div class="card-body">
             <div class="tag">Торт</div>
             <h3>Торт «Чёрный лес»</h3>
-            <p>Коржи из нежного шоколадного бисквита, пропитанные вишневой наливкой, с начинкой из вишни и воздушных
+            <p>Коржи из нежного шоколадного бисквита, пропитанные вишнёвой наливкой, с начинкой из вишни и воздушных
               сливок.<br>
               Масса — 750 г.</p>
             <div class="product-price">810 ₽</div>
           </div>
         </div>
 
-        <!-- Торт Морковный -->
+        <!-- Торт «Морковный» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/морконый.jpg","caption":"Торт «Морковный»"},{"src":"разрезы тортов/DSC_0714.jpg","caption":"Разрез торта «Морковный»"}]'>
-            <img class="gallery-image" src="cotolog/tort/морконый.jpg" alt="Торт Морковный">
+            data-gallery='[{"src":"cotolog/tort/морконый2.jpg","caption":"Торт «Морковный»"},{"src":"разрезы тортов/DSC_0714.jpg","caption":"Разрез торта «Морковный»"}]'>
+            <img class="gallery-image" src="cotolog/tort/морконый2.jpg" alt="Торт «Морковный»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -400,11 +434,11 @@
           </div>
         </div>
 
-        <!-- молочный ломтик -->
+        <!-- Торт «Молочный ломтик» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/ломтик.jpg","caption":"молочный ломтик»"},{"src":"cotolog/tort/ломтик.jpg","caption":"Разрез молочный ломтик»"}]'>
-            <img class="gallery-image" src="cotolog/tort/ломтик.jpg" alt="молочный ломтик">
+            data-gallery='[{"src":"cotolog/tort/ломтик2.jpg","caption":"Торт «Молочный ломтик»"},{"src":"cotolog/tort/ломтик.jpg","caption":"Разрез торта «Молочный ломтик»"}]'>
+            <img class="gallery-image" src="cotolog/tort/ломтик2.jpg" alt="Торт «Молочный ломтик»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -412,7 +446,7 @@
           </div>
           <div class="card-body">
             <div class="tag">Торт</div>
-            <h3>«Молочный ломтик»</h3>
+            <h3>Торт «Молочный ломтик»</h3>
             <p>Нежнейшее суфле в обрамлении шоколадного бисквита, покрытое тонким слоем шоколадной глазури. Идеальный
               баланс воздушной текстуры и насыщенного вкуса.<br>
               Масса — 650 г.</p>
@@ -420,11 +454,11 @@
           </div>
         </div>
 
-        <!-- Торт Сказка -->
+        <!-- Торт «Сказка» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/сказка.jpg","caption":"Торт «Сказка»"},{"src":"cotolog/tort/сказка.jpg","caption":"Разрез торта «Сказка»"}]'>
-            <img class="gallery-image" src="cotolog/tort/сказка.jpg" alt="Торт Сказка">
+            data-gallery='[{"src":"cotolog/tort/сказка2.jpg","caption":"Торт «Сказка»"},{"src":"cotolog/tort/сказка.jpg","caption":"Разрез торта «Сказка»"}]'>
+            <img class="gallery-image" src="cotolog/tort/сказка2.jpg" alt="Торт «Сказка»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -439,11 +473,11 @@
           </div>
         </div>
 
-        <!-- Торт Смородиновый -->
+        <!-- Торт «Смородиновый» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/смородина.jpg","caption":"Торт «Смородиновый»"},{"src":"cotolog/tort/смородина.jpg","caption":"Разрез торта «Смородиновый»"}]'>
-            <img class="gallery-image" src="cotolog/tort/смородина.jpg" alt="Торт Смородиновый">
+            data-gallery='[{"src":"cotolog/tort/смородина2.jpg","caption":"Торт «Смородиновый»"},{"src":"cotolog/tort/смородина.jpg","caption":"Разрез торта «Смородиновый»"}]'>
+            <img class="gallery-image" src="cotolog/tort/смородина2.jpg" alt="Торт «Смородиновый»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -458,11 +492,11 @@
           </div>
         </div>
 
-        <!-- Торт Париж -->
+        <!-- Торт «Париж» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/париж.jpg","caption":"Торт «Париж»"},{"src":"cotolog/tort/париж.jpg","caption":"Разрез торта «Париж»"}]'>
-            <img class="gallery-image" src="cotolog/tort/париж.jpg" alt="Торт Париж">
+            data-gallery='[{"src":"cotolog/tort/париж2.jpg","caption":"Торт «Париж»"},{"src":"cotolog/tort/париж.jpg","caption":"Разрез торта «Париж»"}]'>
+            <img class="gallery-image" src="cotolog/tort/париж2.jpg" alt="Торт «Париж»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -477,11 +511,11 @@
           </div>
         </div>
 
-        <!-- Торт Сникерс -->
+        <!-- Торт «Сникерс» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/сникерс3.jpg","caption":"Торт «Сникерс»"},{"src":"разрезы тортов/DSC_0741.jpg","caption":"Разрез торта «Сникерс»"}]'>
-            <img class="gallery-image" src="cotolog/tort/сникерс3.jpg" alt="Торт Сникерс">
+            data-gallery='[{"src":"cotolog/tort/сникерс4.jpg","caption":"Торт «Сникерс»"},{"src":"разрезы тортов/DSC_0741.jpg","caption":"Разрез торта «Сникерс»"}]'>
+            <img class="gallery-image" src="cotolog/tort/сникерс4.jpg" alt="Торт «Сникерс»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -496,30 +530,25 @@
           </div>
         </div>
 
-        <!-- Торт Киевский -->
-        <div class="card card-with-gallery">
-          <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/киевский2.jpg","caption":"Торт «Киевский»"},{"src":"cotolog/tort/киевский2.jpg","caption":"Разрез торта «Киевский»"}]'>
-            <img class="gallery-image" src="cotolog/tort/киевский2.jpg" alt="Торт Киевский">
-            <div class="gallery-dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-            </div>
+        <!-- Торт «Киевский» (одно фото — без галереи) -->
+        <div class="card">
+          <div class="card-img">
+            <img src="cotolog/tort/киевский2.jpg" alt="Торт «Киевский»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Торт</div>
             <h3>Торт «Киевский»</h3>
-            <p>Коржи-безе с грецким орехом и сливочный крем «Шарлотт».<br>
-              Масса — 750 г.</p>
-            <div class="product-price">870 ₽</div>
+            <p>Коржи-безе с грецким орехом и сливочный крем «Гляссе».<br>
+              Масса — 550 г.</p>
+            <div class="product-price">890 ₽</div>
           </div>
         </div>
 
-        <!-- Торт Прага -->
+        <!-- Торт «Прага» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/прага.jpg","caption":"Торт «Прага»"},{"src":"разрезы тортов/DSC_0728.jpg","caption":"Разрез торта «Прага»"}]'>
-            <img class="gallery-image" src="cotolog/tort/прага.jpg" alt="Торт Прага">
+            <img class="gallery-image" src="cotolog/tort/прага.jpg" alt="Торт «Прага»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -534,10 +563,10 @@
           </div>
         </div>
 
-        <!-- Бенто-торт Клубничный -->
+        <!-- Бенто-торт «Клубничный» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/tort/бенто_клубника2.jpg" alt="Бенто-торт Клубничный">
+            <img src="cotolog/tort/бенто_клубника2.jpg" alt="Бенто-торт «Клубничный»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Бенто</div>
@@ -548,11 +577,11 @@
           </div>
         </div>
 
-        <!-- Торт Красный бархат -->
+        <!-- Торт «Красный бархат» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/красный_бархот2.jpg","caption":"Торт «Красный бархат»"},{"src":"разрезы тортов/DSC_0710.jpg","caption":"Разрез торта «Красный бархат»"}]'>
-            <img class="gallery-image" src="cotolog/tort/красный_бархот2.jpg" alt="Торт Красный бархат">
+            <img class="gallery-image" src="cotolog/tort/красный_бархот2.jpg" alt="Торт «Красный бархат»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -567,10 +596,10 @@
           </div>
         </div>
 
-        <!-- Смаковница -->
+        <!-- Торт «Смаковница» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/tort/смоковница.jpg" alt="Смаковница">
+            <img src="cotolog/tort/смоковница.jpg" alt="Торт «Смаковница»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Торт</div>
@@ -581,11 +610,11 @@
           </div>
         </div>
 
-        <!-- Торт Шоколадный с вишней -->
+        <!-- Торт «Шоколадный с вишней» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/с_вишнй.jpg","caption":"Торт «Шоколадный с вишней»"},{"src":"разрезы тортов/DSC_0716.jpg","caption":"Разрез торта «Шоколадный с вишней»"}]'>
-            <img class="gallery-image" src="cotolog/tort/с_вишнй.jpg" alt="Торт Шоколадный с вишней">
+            <img class="gallery-image" src="cotolog/tort/с_вишнй.jpg" alt="Торт «Шоколадный с вишней»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -600,11 +629,11 @@
           </div>
         </div>
 
-        <!-- Торт Изумрудный -->
+        <!-- Торт «Изумрудный» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/изумрудный.jpg","caption":"Торт «Изумрудный»"},{"src":"разрезы тортов/DSC_0723.jpg","caption":"Разрез торта «Изумрудный»"}]'>
-            <img class="gallery-image" src="cotolog/tort/изумрудный.jpg" alt="Торт Изумрудный">
+            <img class="gallery-image" src="cotolog/tort/изумрудный.jpg" alt="Торт «Изумрудный»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -613,17 +642,16 @@
           <div class="card-body">
             <div class="tag">Торт</div>
             <h3>Торт «Изумрудный»</h3>
-            <p>Воздушная основа из песочного теста с прослойкой из шпината, увенчанная лёгким малиновым муссом и мягким
-              сырным кремом. Украшено натуральными красками.<br>
+            <p>Бисквит с добавлением шпината, малиновый конфи и крем чиз.<br>
               Масса — 900 г.</p>
             <div class="product-price">970 ₽</div>
           </div>
         </div>
 
-        <!-- Бенто-торт Банан в карамели -->
+        <!-- Бенто-торт «Банан в карамели» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/tort/бенто_банан.jpg" alt="Бенто-торт Банан в карамели">
+            <img src="cotolog/tort/бенто_банан.jpg" alt="Бенто-торт «Банан в карамели»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Бенто</div>
@@ -634,11 +662,11 @@
           </div>
         </div>
 
-        <!-- Торт Манго-маракуйя -->
+        <!-- Торт «Манго-маракуйя» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/манго2.jpg","caption":"Торт «Манго-маракуйя»"},{"src":"разрезы тортов/DSC_0726.jpg","caption":"Разрез торта «Манго-маракуйя»"}]'>
-            <img class="gallery-image" src="cotolog/tort/манго2.jpg" alt="Торт Манго-маракуйя">
+            <img class="gallery-image" src="cotolog/tort/манго2.jpg" alt="Торт «Манго-маракуйя»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -653,15 +681,10 @@
           </div>
         </div>
 
-        <!-- Торт Наполеон -->
-        <div class="card card-with-gallery">
-          <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/наполеон.jpg","caption":"Торт «Наполеон»"},{"src":"cotolog/tort/наполеон.jpg","caption":"Разрез торта «Наполеон»"}]'>
-            <img class="gallery-image" src="cotolog/tort/наполеон.jpg" alt="Торт Наполеон">
-            <div class="gallery-dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-            </div>
+        <!-- Торт «Наполеон» (одно фото — без галереи) -->
+        <div class="card">
+          <div class="card-img">
+            <img src="cotolog/tort/наполеон.jpg" alt="Торт «Наполеон»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Торт</div>
@@ -672,11 +695,11 @@
           </div>
         </div>
 
-        <!-- Торт Клубничный -->
+        <!-- Торт «Клубничный» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/клубничный.jpg","caption":"Торт «Клубничный»"},{"src":"разрезы тортов/DSC_0746.jpg","caption":"Разрез торта «Клубничный»"}]'>
-            <img class="gallery-image" src="cotolog/tort/клубничный.jpg" alt="Торт Клубничный">
+            <img class="gallery-image" src="cotolog/tort/клубничный.jpg" alt="Торт «Клубничный»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -691,30 +714,25 @@
           </div>
         </div>
 
-        <!-- Шоколадный медовый -->
-        <div class="card card-with-gallery">
-          <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/медовый.jpg","caption":"Торт «Шоколадный медовый»"},{"src":"cotolog/tort/медовый.jpg","caption":"Разрез торта «Шоколадный медовый»"}]'>
-            <img class="gallery-image" src="cotolog/tort/медовый.jpg" alt="Шоколадный медовый">
-            <div class="gallery-dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-            </div>
+        <!-- Торт «Шоколадный медовый» (одно фото — без галереи) -->
+        <div class="card">
+          <div class="card-img">
+            <img src="cotolog/tort/медовый.jpg" alt="Торт «Шоколадный медовый»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Торт</div>
-            <h3>«Шоколадный медовый»</h3>
+            <h3>Торт «Шоколадный медовый»</h3>
             <p>Медовые коржи с кремом суфле и грецким орехом.<br>
               Масса — 800 г.</p>
             <div class="product-price">1000 ₽</div>
           </div>
         </div>
 
-        <!-- Торт Рафаэлло -->
+        <!-- Торт «Рафаэлло» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/рафаэлло.jpg","caption":"Торт «Рафаэлло»"},{"src":"разрезы тортов/DSC_0720.jpg","caption":"Разрез торта «Рафаэлло»"}]'>
-            <img class="gallery-image" src="cotolog/tort/рафаэлло.jpg" alt="Торт Рафаэлло">
+            <img class="gallery-image" src="cotolog/tort/рафаэлло.jpg" alt="Торт «Рафаэлло»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -729,11 +747,11 @@
           </div>
         </div>
 
-        <!-- Торт Блаженство -->
+        <!-- Торт «Блаженство» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/блаженства.jpg","caption":"Торт «Блаженство»"},{"src":"cotolog/baner/DSC_0712.jpg","caption":"Разрез торта «Блаженство»"}]'>
-            <img class="gallery-image" src="cotolog/tort/блаженства.jpg" alt="Торт Блаженство">
+            <img class="gallery-image" src="cotolog/tort/блаженства.jpg" alt="Торт «Блаженство»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -742,17 +760,17 @@
           <div class="card-body">
             <div class="tag">Торт</div>
             <h3>Торт «Блаженство»</h3>
-            <p>Нежные сливки с йогуртом на воздушном бисквите, украшен киви и персиком.<br>
-              Масса — 800 г.</p>
+            <p>Нежные сливки с йогуртом на воздушном бисквите, прослойка из смородины, украшен киви и персиком.<br>
+              Масса — 850 г.</p>
             <div class="product-price">830 ₽</div>
           </div>
         </div>
 
-        <!-- Торт Осенняя тыква -->
+        <!-- Торт «Осенняя тыква» -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
             data-gallery='[{"src":"cotolog/tort/тыква.jpg","caption":"Торт «Осенняя тыква»"},{"src":"разрезы тортов/DSC_0743.jpg","caption":"Разрез торта «Осенняя тыква»"}]'>
-            <img class="gallery-image" src="cotolog/tort/тыква.jpg" alt="Торт Осенняя тыква">
+            <img class="gallery-image" src="cotolog/tort/тыква.jpg" alt="Торт «Осенняя тыква»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
               <span class="dot"></span>
@@ -767,20 +785,15 @@
           </div>
         </div>
 
-        <!-- Флан ягодный -->
-        <div class="card card-with-gallery">
-          <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/tort/флан_ягод2.jpg","caption":"Торт «Осенняя тыква»"},{"src":"cotolog/tort/флан_ягод2.jpg","caption":"Разрез торта «Осенняя тыква»"}]'>
-            <img class="gallery-image" src="cotolog/tort/флан_ягод2.jpg" alt="Торт Осенняя тыква">
-            <div class="gallery-dots">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-            </div>
+        <!-- Флан «Ягодный» (одно фото — без галереи) -->
+        <div class="card">
+          <div class="card-img">
+            <img src="cotolog/tort/флан_ягод2.jpg" alt="Флан «Ягодный»" loading="lazy">
           </div>
           <div class="card-body">
-            <div class="tag">Торт</div>
-            <h3>Флан «Ягодный»»</h3>
-            <p>Корзинка из рассыпчатого песочного теста, наполненная сливочно-ванильным кремом, черной смородиной и
+            <div class="tag">Флан</div>
+            <h3>Флан «Ягодный»</h3>
+            <p>Корзинка из рассыпчатого песочного теста, наполненная сливочно-ванильным кремом, чёрной смородиной и
               клубникой. Покрыта желе.<br>
               Масса — 650 г.</p>
             <div class="product-price">790 ₽</div>
@@ -791,7 +804,7 @@
     </div>
   </section>
 
-  <!-- Custom Cakes -->
+  <!-- ===================== Заказные торты ===================== -->
   <section id="custom" class="section">
     <div class="container">
       <div class="section-head">
@@ -799,7 +812,6 @@
         <h2>Заказные торты</h2>
       </div>
 
-      <!-- Простая карусель -->
       <div class="simple-carousel-wrapper">
         <div class="simple-carousel" id="simpleCarousel">
           <div class="simple-carousel-container">
@@ -826,15 +838,16 @@
           </div>
 
           <!-- Навигация -->
-          <button class="simple-carousel-btn prev" id="simplePrev">‹</button>
-          <button class="simple-carousel-btn next" id="simpleNext">›</button>
+          <button type="button" class="simple-carousel-btn prev" id="simplePrev" aria-label="Предыдущий слайд">‹</button>
+          <button type="button" class="simple-carousel-btn next" id="simpleNext" aria-label="Следующий слайд">›</button>
 
-          <!-- Индикаторы -->
+          <!-- Индикаторы (по одному на каждый слайд) -->
           <div class="simple-carousel-dots" id="simpleDots">
             <span class="dot active" data-index="0"></span>
             <span class="dot" data-index="1"></span>
             <span class="dot" data-index="2"></span>
             <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
           </div>
         </div>
       </div>
@@ -843,16 +856,21 @@
       <div class="master-contact mt-16">
         <h3>Хотите торт под заказ?</h3>
         <p>Напишите или позвоните нашему кондитеру:</p>
-        <a href="tel:+79969232626" class="phone-btn">📞 +7 (996) 923-26-26</a>
-        <a href="https://t.me/+79969232626" class="custom-order-btn telegram">
-          <span class="tg-ico">✈️</span> Написать в Telegram
+        <a href="tel:+79969232626" class="phone-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (996) 923-26-26
+        </a>
+        <a href="https://t.me/+79969232626" target="_blank" rel="noopener" class="custom-order-btn telegram">
+          <span class="tg-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          </span>
+          Написать в Telegram
         </a>
       </div>
     </div>
   </section>
 
-
-
+  <!-- ===================== Десерты ===================== -->
   <section id="desserts" class="section">
     <div class="container">
       <div class="section-head">
@@ -862,69 +880,98 @@
 
       <div class="cards-3 mt-16">
 
-        <!-- Пирожное Картошка -->
+        <!-- Пирожное «Шоколадная картошка» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/кортошека2.jpg" alt="Пирожное Картошка" loading="lazy">
+            <img src="cotolog/desert/кортошека2.jpg" alt="Пирожное «Шоколадная картошка»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Пирожное «Шоколадная картошка»</h3>
-            <p>с вяленой клюквой и коньячной пропиткой.<br>
-              Масса: 80 г.</p>
+            <p>С вяленой клюквой и коньячной пропиткой.<br>
+              Масса — 80 г.</p>
             <div class="product-price">100 ₽</div>
           </div>
         </div>
 
-         <!-- Пирожное Картошка набор -->
+        <!-- Тарталетка «Вишнёвая» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/набор_картошка.jpg" alt="Пирожное Картошка" loading="lazy">
+            <img src="cotolog/desert/Тарталетка_Вишневая2.jpg" alt="Тарталетка «Вишнёвая»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Набор 4шт «Шоколадная картошка»</h3>
-            <p>с вяленой клюквой и коньячной пропиткой.<br>
-              Масса: 320 г.</p>
+            <h3>Тарталетка «Вишнёвая»</h3>
+            <p>Песочная основа, вишнёвая начинка, вишнёвый мусс.<br>
+              Масса — 85 г.</p>
+            <div class="product-price">179 ₽</div>
+          </div>
+        </div>
+
+        <!-- Набор «Шоколадная картошка» -->
+        <div class="card">
+          <div class="card-img">
+            <img src="cotolog/desert/набор_картошка.jpg" alt="Набор пирожных «Шоколадная картошка»" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="tag">Десерт</div>
+            <h3>Набор 4 шт. «Шоколадная картошка»</h3>
+            <p>С вяленой клюквой и коньячной пропиткой.<br>
+              Масса — 320 г.</p>
             <div class="product-price">380 ₽</div>
           </div>
         </div>
 
-        <!-- Десерт Павлова -->
+        <!-- Тарталетка «Малиновая» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/павлова2.jpg" alt="Десерт Павлова" loading="lazy">
+            <img src="cotolog/desert/Тарталетка_малина2.jpg" alt="Тарталетка «Малиновая»" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="tag">Десерт</div>
+            <h3>Тарталетка «Малиновая»</h3>
+            <p>Песочная основа, малина, малиновый мусс.<br>
+              Масса — 85 г.</p>
+            <div class="product-price">179 ₽</div>
+          </div>
+        </div>
+
+        <!-- Десерт «Павлова» -->
+        <div class="card">
+          <div class="card-img">
+            <img src="cotolog/desert/павлова2.jpg" alt="Десерт «Павлова»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Десерт «Павлова»</h3>
-            <p>Воздушное безе с кремом «Чиз» и свежими ягодами.<br>
+            <p>Воздушное безе с кремом чиз и свежими ягодами.<br>
               Состав: сахарная пудра, белок, сливки, мягкий сыр, клубника.</p>
             <div class="product-price">289 ₽</div>
           </div>
         </div>
 
-        <!-- Рулет Изумрудный -->
+        <!-- Рулет «Изумрудный» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/изумрудный_рулет.jpg" alt="Рулет Изумрудный" loading="lazy">
+            <img src="cotolog/desert/изумрудный_рулет.jpg" alt="Рулет «Изумрудный»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Рулет «Изумрудный»</h3>
             <p>Рулет со шпинатом, малиновой начинкой и сливочным кремом.<br>
-              Состав: шпинат, мука, малина, сливки, сыр «Чиз».</p>
+              Состав: шпинат, мука, малина, сливки, сыр.</p>
             <div class="product-price">179 ₽</div>
           </div>
         </div>
 
-        <!-- Чизкейк Шоколадный -->
+        <!-- Чизкейки (галерея: шоколадный, классический, фисташковый) -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/desert/чизкейк_класик2.jpg","caption":"Чизкейк «Шоколадный»"},{"src":"cotolog/desert/фисташка.jpg","caption":"Чизкейк «фисташка»"}]'>
-            <img class="gallery-image" src="cotolog/desert/чизкейк_шок2.jpg" alt="Чизкейк Шоколадный" loading="lazy">
+            data-gallery='[{"src":"cotolog/desert/чизкейк_шок2.jpg","caption":"Чизкейк «Шоколадный»"},{"src":"cotolog/desert/чизкейк_класик2.jpg","caption":"Чизкейк «Классический»"},{"src":"cotolog/desert/фисташка.jpg","caption":"Чизкейк «Фисташковый»"}]'>
+            <img class="gallery-image" src="cotolog/desert/чизкейк_шок2.jpg" alt="Чизкейк «Шоколадный»" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
+              <span class="dot"></span>
               <span class="dot"></span>
             </div>
           </div>
@@ -937,16 +984,16 @@
           </div>
         </div>
 
-        <!-- Мини Медовик -->
+        <!-- Мини-торт «Медовик» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/мини_торт_медовик2.jpg" alt="Мини Медовик" loading="lazy">
+            <img src="cotolog/desert/мини_торт_медовик2.jpg" alt="Мини-торт «Медовик»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Мини-торт «Медовик»</h3>
             <p>Нежный мини-вариант классического медовика с карамельным вкусом.<br>
-              Масса: 280 г.</p>
+              Масса — 280 г.</p>
             <div class="product-price">389 ₽</div>
           </div>
         </div>
@@ -954,34 +1001,34 @@
         <!-- Кольцо с кремом чиз -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/кольцо2.jpg" alt="Кольцо с кремом чиз" loading="lazy">
+            <img src="cotolog/desert/кольцо2.jpg" alt="Заварное кольцо с кремом чиз" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Кольцо с кремом-чиз</h3>
-            <p>Заварное кольцо с нежным кремом «Чиз» и сахарной пудрой.</p>
+            <h3>Кольцо с кремом чиз</h3>
+            <p>Заварное кольцо с нежным кремом чиз и сахарной пудрой.</p>
             <div class="product-price">159 ₽</div>
           </div>
         </div>
 
-        <!-- Десерт Сливочно-шоколадный -->
+        <!-- Десерт «Сливочно-шоколадный с вишней» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/сливочно_шок.jpg" alt="Десерт Сливочно-шоколадный с вишней" loading="lazy">
+            <img src="cotolog/desert/сливочно_шок.jpg" alt="Десерт «Сливочно-шоколадный с вишней»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Десерт «Сливочно-шоколадный с вишней»</h3>
             <p>Нежный слой сливочного крема с шоколадом и вишнёвой начинкой.<br>
-              Масса: 180 г.</p>
+              Масса — 180 г.</p>
             <div class="product-price">310 ₽</div>
           </div>
         </div>
 
-        <!-- Пирожное Медовик -->
+        <!-- Пирожное «Медовик» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/медовик2.jpg" alt="Пирожное Медовик" loading="lazy">
+            <img src="cotolog/desert/медовик2.jpg" alt="Пирожное «Медовик»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
@@ -991,42 +1038,40 @@
           </div>
         </div>
 
-        <!-- тарт вишнёвый -->
+        <!-- Тарт «Вишнёвый» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/тарт_вишнёвый.jpg" alt="Тарт вишнёвый" loading="lazy">
+            <img src="cotolog/desert/тарт_вишнёвый.jpg" alt="Тарт «Вишнёвый»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Тарт «Вишневый»</h3>
-            <p>песочная онснова, сочная вишнёвая начинка, мусс на белом шоколаде.</p>
+            <h3>Тарт «Вишнёвый»</h3>
+            <p>Песочная основа, сочная вишнёвая начинка, мусс на белом шоколаде.</p>
             <div class="product-price">179 ₽</div>
           </div>
         </div>
 
-        <!-- тарт летний -->
+        <!-- Тарт «Летний» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/тарт_летний.jpg" alt="Тарт летний" loading="lazy">
+            <img src="cotolog/desert/тарт_летний.jpg" alt="Тарт «Летний»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Тарт «Летний»</h3>
-            <p>песочная онснова, нежный пломбирный крем, сезонный фрукты и ягоды.</p>
+            <p>Песочная основа, нежный пломбирный крем, сезонные фрукты и ягоды.</p>
             <div class="product-price">230 ₽</div>
           </div>
         </div>
 
-       <!-- Пирожное Корзинка (с галереей) -->
+        <!-- Пирожное «Корзинка» (галерея вариантов) -->
         <div class="card card-with-gallery">
-          <div class="card-img card-gallery-wrapper" data-gallery='[
-     {"src":"cotolog/desert/корзинка_малина.jpg","caption":"Пирожное Корзинка"},
-    {"src":"cotolog/desert/корзинка_ягод.jpg","caption":"Пирожное Корзинка в разрезе"}
-  ]'>
-            <img class="gallery-image" src="cotolog/desert/корзинка_вишня.jpg" alt="Пирожное Корзинка"
-              loading="lazy">
+          <div class="card-img card-gallery-wrapper"
+            data-gallery='[{"src":"cotolog/desert/корзинка_вишня.jpg","caption":"Пирожное «Корзинка» вишнёвая"},{"src":"cotolog/desert/корзинка_малина.jpg","caption":"Пирожное «Корзинка» малиновая"},{"src":"cotolog/desert/корзинка_ягод.jpg","caption":"Пирожное «Корзинка» ягодная"}]'>
+            <img class="gallery-image" src="cotolog/desert/корзинка_вишня.jpg" alt="Пирожное «Корзинка» вишнёвая" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
+              <span class="dot"></span>
               <span class="dot"></span>
             </div>
           </div>
@@ -1038,40 +1083,41 @@
           </div>
         </div>
 
-        <!-- Яголные лодочки -->
+        <!-- «Ягодные лодочки» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/лодочки.jpg" alt="Пирожное Корзинка" loading="lazy">
+            <img src="cotolog/desert/лодочки.jpg" alt="Тарталетки «Ягодные лодочки»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>"Ягодные лодочки", тарталетки</h3>
-            <p>Песочная тарталетка, малиновый крем чиз, ягоды(черная смородина, малина)</p>
+            <h3>Тарталетки «Ягодные лодочки»</h3>
+            <p>Песочная тарталетка, малиновый крем чиз, ягоды (чёрная смородина, малина).</p>
             <div class="product-price">289 ₽</div>
           </div>
         </div>
 
-        <!-- Зефир -->
+        <!-- Зефир микс -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/зефир2.jpg" alt="Зефир" loading="lazy">
+            <img src="cotolog/desert/зефир2.jpg" alt="Зефир микс" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Зефир микс</h3>
             <p>Воздушный натуральный зефир ручной работы (малиновый, смородиновый).<br>
-              Масса: 180 г.</p>
+              Масса — 180 г.</p>
             <div class="product-price">350 ₽</div>
           </div>
         </div>
 
-        <!-- Эклер -->
+        <!-- Пирожное «Эклер» (галерея вариантов) -->
         <div class="card card-with-gallery">
           <div class="card-img card-gallery-wrapper"
-            data-gallery='[{"src":"cotolog/desert/эклер_фирмен.jpg","caption":"Пирожное «Эклер»"},{"src":"cotolog/desert/эклер_шоколад2.jpg","caption":"Эклер «Париж»"}]'>
-            <img class="gallery-image" src="cotolog/desert/эклер_слив.jpg" alt="Эклер" loading="lazy">
+            data-gallery='[{"src":"cotolog/desert/эклер_слив.jpg","caption":"Эклер сливочный"},{"src":"cotolog/desert/эклер_шоколад2.jpg","caption":"Эклер шоколадный"},{"src":"cotolog/desert/эклер_фирмен.jpg","caption":"Эклер фирменный"}]'>
+            <img class="gallery-image" src="cotolog/desert/эклер_слив.jpg" alt="Эклер сливочный" loading="lazy">
             <div class="gallery-dots">
               <span class="dot active"></span>
+              <span class="dot"></span>
               <span class="dot"></span>
             </div>
           </div>
@@ -1079,15 +1125,15 @@
             <div class="tag">Десерт</div>
             <h3>Пирожное «Эклер»</h3>
             <p>Нежное заварное тесто, сливочный крем и шоколадная помадка.<br>
-              Варианты: Сливочный, Шоколадный, Фирменный.</p>
+              Варианты: сливочный, шоколадный, фирменный.</p>
             <div class="product-price">145 ₽</div>
           </div>
         </div>
 
-        <!-- Эклер Париж -->
+        <!-- Эклер «Париж» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/эклер_париж2.jpg" alt="Эклер Париж" loading="lazy">
+            <img src="cotolog/desert/эклер_париж2.jpg" alt="Эклер «Париж»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
@@ -1098,94 +1144,94 @@
           </div>
         </div>
 
-        <!-- Трайфл суфле -->
+        <!-- Суфле с шоколадом -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/суфле3.jpg" alt="Трайфл в ассортименте" loading="lazy">
+            <img src="cotolog/desert/суфле3.jpg" alt="Суфле с шоколадом" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Суфле с шоколадом</h3>
-            <p>Нежный суфле с горьким шоколадом</p>
+            <p>Воздушное суфле с горьким шоколадом.</p>
             <div class="product-price">165 ₽</div>
           </div>
         </div>
 
-        <!-- Трайфл три шоколада-->
+        <!-- «Три шоколада» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/три_шоколада2.jpg" alt="Трайфл в ассортименте" loading="lazy">
+            <img src="cotolog/desert/три_шоколада2.jpg" alt="Десерт «Три шоколада»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Три шоколада</h3>
-            <p>Мус из трё видов шоколада</p>
+            <h3>Десерт «Три шоколада»</h3>
+            <p>Мусс из трёх видов шоколада.</p>
             <div class="product-price">275 ₽</div>
-
           </div>
         </div>
 
-        <!-- Трайфл малина -->
+        <!-- Трайфл «Малина» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/трайфл_малиновый2.jpg" alt="Трайфл в ассортименте" loading="lazy">
+            <img src="cotolog/desert/трайфл_малиновый2.jpg" alt="Трайфл «Малина»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Трайфл малина</h3>
-            <p>Шифоновый бисквит с йгоуртовым кремом.</p>
+            <h3>Трайфл «Малина»</h3>
+            <p>Шифоновый бисквит с йогуртовым кремом.</p>
             <div class="product-price">219 ₽</div>
           </div>
         </div>
 
-        <!-- Трайфл киевский -->
+        <!-- Десерт «Киевский» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/киевский3.jpg" alt="Трайфл в ассортименте" loading="lazy">
+            <img src="cotolog/desert/киевский3.jpg" alt="Десерт «Киевский»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Киевский</h3>
-            <p>Безе с грецким орехом и сливочным кремом.</p>
-            <div class="product-price">175 ₽</div>
+            <h3>Десерт «Киевский»</h3>
+            <p>Безе с грецким орехом и сливочным кремом «Гляссе».</p>
+            <div class="product-price">185 ₽</div>
           </div>
         </div>
 
-        <!-- Трайфл сникерс -->
+        <!-- Трайфл «Сникерс» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/трайфл_сникерс2.jpg" alt="Трайфл в ассортименте" loading="lazy">
+            <img src="cotolog/desert/трайфл_сникерс2.jpg" alt="Трайфл «Сникерс»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Трайфл сникерс</h3>
-            <p>Шифоновый шоколадный бисквит с кремом чиз</p>
-            <div class="product-price">279 ₽</div>
+            <h3>Трайфл «Сникерс»</h3>
+            <p>Шифоновый шоколадный бисквит с кремом чиз.<br>
+              Масса — 200 г.</p>
+            <div class="product-price">299 ₽</div>
           </div>
         </div>
 
-        <!-- Безе -->
+        <!-- Пирожное «Безе» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/безе2.jpg" alt="Безе" loading="lazy">
+            <img src="cotolog/desert/безе2.jpg" alt="Пирожное «Безе»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Пирожное «Безе»</h3>
             <p>Воздушное безе с нежным кремом внутри.<br>
-              Масса: 45 г.</p>
+              Масса — 45 г.</p>
             <div class="product-price">95 ₽</div>
           </div>
         </div>
 
-        <!-- Тарта с орехами -->
+        <!-- Тарт с фундуком в карамели -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/фундук.jpg" alt="Тарта с орехами" loading="lazy">
+            <img src="cotolog/desert/фундук.jpg" alt="Тарт с фундуком в карамели" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Тарта с фундук в карамели</h3>
+            <h3>Тарт с фундуком в карамели</h3>
             <p>Рассыпчатое тесто, карамель с фундуком.</p>
             <div class="product-price">219 ₽</div>
           </div>
@@ -1194,41 +1240,41 @@
         <!-- Эклеры в коробке -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/эклер_набор.jpg" alt="Эклеры в коробке" loading="lazy">
+            <img src="cotolog/desert/эклер_набор.jpg" alt="Эклеры в подарочной коробке" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Эклеры в коробке</h3>
             <p>Ассорти из четырёх эклеров в подарочной упаковке.<br>
-              Количество: 4 шт.</p>
+              Количество — 4 шт.</p>
             <div class="product-price">490 ₽</div>
           </div>
         </div>
 
-        <!-- Чизкейк Баскский -->
+        <!-- Чизкейк «Баскский» -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/баскский2.jpg" alt="Чизкейк Баскский" loading="lazy">
+            <img src="cotolog/desert/баскский2.jpg" alt="Чизкейк «Баскский»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
             <h3>Чизкейк «Баскский»</h3>
             <p>Запечённый чизкейк с карамелизированной корочкой.<br>
-              Масса: 140 г.</p>
+              Масса — 140 г.</p>
             <div class="product-price">295 ₽</div>
           </div>
         </div>
 
-        <!-- терамису -->
+        <!-- Тирамису -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/desert/терамису.jpg" alt="Чизкейк Классический и Фисташковый" loading="lazy">
+            <img src="cotolog/desert/терамису.jpg" alt="Тирамису" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Десерт</div>
-            <h3>Терамису</h3>
-            <p>Печенья савоярди кофейной пропиткой с кремом маскарпоне.<br>
-              Масса: 150 г</p>
+            <h3>Тирамису</h3>
+            <p>Печенье савоярди с кофейной пропиткой и кремом маскарпоне.<br>
+              Масса — 150 г.</p>
             <div class="product-price">369 ₽</div>
           </div>
         </div>
@@ -1237,7 +1283,7 @@
     </div>
   </section>
 
-
+  <!-- ===================== Урбечи ===================== -->
   <section id="urbech" class="section">
     <div class="container">
       <div class="section-head">
@@ -1250,7 +1296,7 @@
         <!-- Урбеч из грецкого ореха -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/uebech/urbech.jpg" alt="Урбеч из грецкого ореха">
+            <img src="cotolog/uebech/urbech.jpg" alt="Урбеч из грецкого ореха" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Урбеч</div>
@@ -1266,7 +1312,7 @@
         <!-- Урбеч из семечек тыквы -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/uebech/tikva.jpg" alt="Урбеч из семечек тыквы">
+            <img src="cotolog/uebech/tikva.jpg" alt="Урбеч из семечек тыквы" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Урбеч</div>
@@ -1282,7 +1328,7 @@
         <!-- Урбеч из семян подсолнечника -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/uebech/podsol.jpg" alt="Урбеч из семян подсолнечника">
+            <img src="cotolog/uebech/podsol.jpg" alt="Урбеч из семян подсолнечника" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Урбеч</div>
@@ -1298,7 +1344,7 @@
         <!-- Урбеч из семян кунжута -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/uebech/кунжут.jpg" alt="Урбеч из семян кунжута">
+            <img src="cotolog/uebech/кунжут.jpg" alt="Урбеч из семян кунжута" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Урбеч</div>
@@ -1315,8 +1361,7 @@
     </div>
   </section>
 
-
-
+  <!-- ===================== Арахисовая паста ===================== -->
   <section id="peanut" class="section">
     <div class="container">
       <div class="section-head">
@@ -1329,12 +1374,12 @@
         <!-- Классическая -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/класик.jpg" alt="Арахисовая паста Классическая">
+            <img src="cotolog/araxis/класик.jpg" alt="Арахисовая паста «Классическая»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>Классическая</h3>
-            <p>Арахисовая паста «Классическая» 240 г.<br>
+            <p>Арахисовая паста «Классическая», 240 г.<br>
               Состав: арахис обжаренный, соль.<br>
               Пищевая ценность (в 100 г): белки — 24 г; жиры — 50 г; углеводы — 13,4 г.<br>
               Энергетическая ценность: 599,4 ккал / 2506,3 кДж.</p>
@@ -1345,12 +1390,12 @@
         <!-- С мёдом -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/С-мёдом-2.jpg" alt="Арахисовая паста с мёдом">
+            <img src="cotolog/araxis/С-мёдом-2.jpg" alt="Арахисовая паста с мёдом" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>С мёдом</h3>
-            <p>Арахисовая паста с мёдом 240 г.<br>
+            <p>Арахисовая паста с мёдом, 240 г.<br>
               Состав: арахис обжаренный, мёд.<br>
               Пищевая ценность (в 100 г): белки — 24 г; жиры — 50 г; углеводы — 13,4 г.<br>
               Энергетическая ценность: 599,4 ккал / 2506,3 кДж.</p>
@@ -1361,12 +1406,12 @@
         <!-- Шоколадная -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/Шоколадная-3.jpg" alt="Арахисовая паста Шоколадная">
+            <img src="cotolog/araxis/Шоколадная-3.jpg" alt="Арахисовая паста «Шоколадная»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>Шоколадная</h3>
-            <p>Арахисовая паста «Шоколадная» 240 г.<br>
+            <p>Арахисовая паста «Шоколадная», 240 г.<br>
               Состав: арахис обжаренный, шоколад чёрный (какао тёртое, какао-масло, сахар, ядро фундука, молоко сухое,
               эмульгатор — лецитин).<br>
               Пищевая ценность (в 100 г): белки — 24,7 г; жиры — 56,8 г; углеводы — 17,2 г.<br>
@@ -1378,14 +1423,13 @@
         <!-- С сиропом топинамбура -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/арфхис.jpg" alt="Арахисовая паста с сиропом топинамбура">
+            <img src="cotolog/araxis/арфхис.jpg" alt="Арахисовая паста с сиропом топинамбура" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>С сиропом топинамбура</h3>
-            <p>Арахисовая паста с сиропом топинамбура 240 г.<br>
-              Состав: арахис обжаренный, сироп топинамбура.<br>
-              Энергетическая ценность: (ознакомительно).</p>
+            <p>Арахисовая паста с сиропом топинамбура, 240 г.<br>
+              Состав: арахис обжаренный, сироп топинамбура.</p>
             <div class="product-price">310 ₽</div>
           </div>
         </div>
@@ -1393,12 +1437,12 @@
         <!-- Хрустящая -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/xrust.jpg" alt="Арахисовая паста Хрустящая">
+            <img src="cotolog/araxis/xrust.jpg" alt="Арахисовая паста «Хрустящая»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>Хрустящая</h3>
-            <p>Арахисовая паста с кусочками арахиса 240 г.<br>
+            <p>Арахисовая паста с кусочками арахиса, 240 г.<br>
               Состав: арахис обжаренный, фруктоза.<br>
               Пищевая ценность (в 100 г): белки — 24 г; жиры — 50 г; углеводы — 13,4 г.<br>
               Энергетическая ценность: 599,4 ккал / 2506,3 кДж.</p>
@@ -1409,12 +1453,12 @@
         <!-- На фруктозе -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/ФРУКТОЗА-2.jpg" alt="Арахисовая паста на фруктозе">
+            <img src="cotolog/araxis/ФРУКТОЗА-2.jpg" alt="Арахисовая паста на фруктозе" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>На фруктозе</h3>
-            <p>Арахисовая паста с фруктозой 240 г.<br>
+            <p>Арахисовая паста на фруктозе, 240 г.<br>
               Состав: арахис обжаренный, фруктоза.<br>
               Пищевая ценность (в 100 г): белки — 24 г; жиры — 50 г; углеводы — 13,4 г.<br>
               Энергетическая ценность: 599,4 ккал / 2506,3 кДж.</p>
@@ -1425,12 +1469,12 @@
         <!-- Десертная -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/araxis/десертная.jpg" alt="Арахисовая паста Десертная">
+            <img src="cotolog/araxis/десертная.jpg" alt="Арахисовая паста «Десертная»" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Арахисовая паста</div>
             <h3>Десертная</h3>
-            <p>Арахисовая паста «Десертная» 240 г.<br>
+            <p>Арахисовая паста «Десертная», 240 г.<br>
               Состав: арахис обжаренный, сахар.<br>
               Пищевая ценность (в 100 г): белки — 23,6 г; жиры — 49,6 г; углеводы — 15,7 г.<br>
               Энергетическая ценность: 603,6 ккал / 2523 кДж.</p>
@@ -1442,7 +1486,7 @@
     </div>
   </section>
 
-  <!-- HALVA -->
+  <!-- ===================== Халва ===================== -->
   <section id="halva" class="section">
     <div class="container">
       <div class="section-head">
@@ -1452,10 +1496,10 @@
 
       <div class="cards-3 mt-16">
 
-        <!-- 1. Крем-халва арахисовая с белым шоколадом -->
+        <!-- Крем-халва арахисовая с белым шоколадом -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/крем-халва-арахис.jpg" alt="Крем-халва арахисовая с белым шоколадом">
+            <img src="cotolog/xalva/крем-халва-арахис.jpg" alt="Крем-халва арахисовая с белым шоколадом" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1466,10 +1510,10 @@
           </div>
         </div>
 
-        <!-- 2. Халва подсолнечная шоколадная -->
+        <!-- Халва подсолнечная шоколадная -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/шоколад.jpg" alt="Халва подсолнечная шоколадная">
+            <img src="cotolog/xalva/шоколад.jpg" alt="Халва подсолнечная шоколадная" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1480,10 +1524,10 @@
           </div>
         </div>
 
-        <!-- 3. Халва арахисовая -->
+        <!-- Халва арахисовая -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/арахис.jpg" alt="Халва арахисовая">
+            <img src="cotolog/xalva/арахис.jpg" alt="Халва арахисовая" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1494,10 +1538,10 @@
           </div>
         </div>
 
-        <!-- 4. Халва кунжутная -->
+        <!-- Халва кунжутная -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/кунжутная.jpg" alt="Халва кунжутная">
+            <img src="cotolog/xalva/кунжутная.jpg" alt="Халва кунжутная" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1508,10 +1552,10 @@
           </div>
         </div>
 
-        <!-- 5. Халва кунжутная с фисташкой -->
+        <!-- Халва кунжутная с фисташкой -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/фисташка.jpg" alt="Халва кунжутная с фисташкой">
+            <img src="cotolog/xalva/фисташка.jpg" alt="Халва кунжутная с фисташкой" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1522,10 +1566,10 @@
           </div>
         </div>
 
-        <!-- 6. Халва из семян тыквы -->
+        <!-- Халва из семян тыквы -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/тыква.jpg" alt="Халва из семян тыквы">
+            <img src="cotolog/xalva/тыква.jpg" alt="Халва из семян тыквы" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1536,10 +1580,10 @@
           </div>
         </div>
 
-        <!-- 7. Крем-халва подсолнечная с белым шоколадом -->
+        <!-- Крем-халва подсолнечная с белым шоколадом -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/крем-халва-подсолнечная.jpg" alt="Крем-халва подсолнечная с белым шоколадом">
+            <img src="cotolog/xalva/крем-халва-подсолнечная.jpg" alt="Крем-халва подсолнечная с белым шоколадом" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1550,10 +1594,10 @@
           </div>
         </div>
 
-        <!-- 8. Халва подсолнечная -->
+        <!-- Халва подсолнечная -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/podsol.jpg" alt="Халва подсолнечная">
+            <img src="cotolog/xalva/podsol.jpg" alt="Халва подсолнечная" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
@@ -1564,14 +1608,14 @@
           </div>
         </div>
 
-        <!-- 9. Крем-халва кунжутная с тёмным шоколадом -->
+        <!-- Крем-халва кунжутная с тёмным шоколадом -->
         <div class="card">
           <div class="card-img">
-            <img src="cotolog/xalva/крем-халва-кунжутная.jpg" alt="Крем-халва кунжутная с тёмным шоколадом">
+            <img src="cotolog/xalva/крем-халва-кунжутная.jpg" alt="Крем-халва кунжутная с тёмным шоколадом" loading="lazy">
           </div>
           <div class="card-body">
             <div class="tag">Халва</div>
-            <h3>Кунжутная с тёмным шоколадом</h3>
+            <h3>Крем-халва кунжутная с тёмным шоколадом</h3>
             <p>Крем-халва с добавлением тёмного шоколада.<br>
               Масса — 240 г.</p>
             <div class="product-price">290 ₽</div>
@@ -1582,10 +1626,7 @@
     </div>
   </section>
 
-
-
-
-  <!-- Contacts & Map -->
+  <!-- ===================== Контакты и карта ===================== -->
   <section id="contacts" class="section">
     <div class="container">
 
@@ -1594,14 +1635,12 @@
         <h2>Адреса</h2>
       </div>
 
-      <!-- Кнопка для открытия списка филиалов -->
       <div style="text-align: center; margin: 32px 0;">
-        <button id="showBranchesBtn" class="btn primary">Показать все филиалы</button>
+        <button type="button" id="showBranchesBtn" class="btn primary">Показать все филиалы</button>
       </div>
 
       <div class="map-card" style="max-width: 100%; margin: 0 auto;">
         <div id="mapTitle" class="map-title">Наши филиалы на карте Твери</div>
-
         <div id="yandexMap" style="width: 100%; height: 500px; border-radius: 16px; overflow: hidden;"></div>
       </div>
 
@@ -1614,29 +1653,29 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3>Наши филиалы</h3>
-        <button class="modal-close" id="closeBranchesModal">&times;</button>
+        <button type="button" class="modal-close" id="closeBranchesModal" aria-label="Закрыть">&times;</button>
       </div>
 
-    <a href="https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" target="_blank" class="uds-modal-banner">
-      <div class="uds-modal-icon">🎁</div>
-      <div class="uds-modal-text">
-        <strong>Присоединяйтесь к программе лояльности UDS</strong>
-        <span>Копите баллы и получайте призы!</span>
-      </div>
-      <div class="uds-modal-qr">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" alt="QR UDS">
-      </div>
-    </a>
+      <a href="https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" target="_blank" rel="noopener" class="uds-modal-banner">
+        <div class="uds-modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>
+        </div>
+        <div class="uds-modal-text">
+          <strong>Присоединяйтесь к программе лояльности UDS</strong>
+          <span>Копите баллы и получайте призы!</span>
+        </div>
+        <div class="uds-modal-qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://vsevkusnoetver.uds.app/c/join?ref=qnzj0029" alt="QR-код UDS" loading="lazy">
+        </div>
+      </a>
 
       <div class="modal-body" id="branchesModalList">
-        <!-- Список заполнится через JS -->
+        <!-- Список заполняется через JS -->
       </div>
     </div>
   </div>
 
-
-
-  <!-- Footer -->
+  <!-- ===================== Footer ===================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -1644,25 +1683,27 @@
           <div class="muted footer-label">Контакты администратора:</div>
           <div class="footer-contacts-row">
             <a href="tel:+79921021785" class="contact-link">
-              <span>📞</span> +7 (992) 102-17-85
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +7 (992) 102-17-85
             </a>
             <a href="mailto:Tver-pasta@mail.ru" class="contact-link">
-              <span>📧</span> Tver-pasta@mail.ru
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              Tver-pasta@mail.ru
             </a>
           </div>
         </div>
       </div>
-      
-      <!-- Иконки соцсетей -->
+
+      <!-- Соцсети -->
       <div class="footer-social">
-        <a href="https://vk.com/vsevkusnoe_tver" target="_blank" class="social-icon" aria-label="ВКонтакте">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <a href="https://vk.com/vsevkusnoe_tver" target="_blank" rel="noopener" class="social-icon" aria-label="ВКонтакте">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12.785 16.241s.288-.032.436-.193c.136-.147.132-.423.132-.423s-.019-1.283.574-1.471c.584-.185 1.33 1.24 2.123 1.789.6.416 1.056.324 1.056.324l2.123-.03s1.111-.069.584-.946c-.043-.072-.308-.651-1.588-1.84-1.34-1.244-1.16-1.043.454-3.193.983-1.31 1.375-2.11 1.252-2.45-.117-.325-.84-.239-.84-.239l-2.39.015s-.177-.024-.308.055c-.128.076-.21.254-.21.254s-.377.996-.88 1.843c-1.059 1.785-1.483 1.879-1.656 1.768-.403-.26-.302-1.044-.302-1.601 0-1.741.263-2.468-.513-2.656-.258-.062-.448-.104-1.107-.111-.847-.009-1.564.003-1.969.202-.27.133-.478.429-.351.446.156.021.51.096.698.352.243.331.234 1.075.234 1.075s.14 2.049-.326 2.304c-.319.175-.756-.182-1.696-1.812-.481-.83-.845-1.746-.845-1.746s-.07-.172-.195-.264c-.152-.112-.364-.147-.364-.147l-2.27.015s-.341.01-.466.158c-.111.132-.009.404-.009.404s1.779 4.122 3.795 6.197c1.85 1.905 3.948 1.78 3.948 1.78h.953z"/>
           </svg>
         </a>
       </div>
-      
-      <!-- Логотип и копирайт внизу -->
+
+      <!-- Логотип и копирайт -->
       <div class="footer-bottom">
         <div class="footer-logo-section">
           <div class="logo small"><img src="logo/logo.png" alt="Логотип Всё вкусное"></div>
@@ -1676,15 +1717,19 @@
     </div>
   </footer>
 
-  <!-- Плавающая кнопка горячей линии для МОБИЛЬНЫХ -->
+  <!-- Плавающая кнопка горячей линии — мобильные -->
   <a href="tel:+78005506923" class="hotline-btn hotline-btn-mobile" id="hotlineBtnMobile">
-    <span class="hotline-icon">📞</span>
+    <span class="hotline-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </span>
     <span class="hotline-text">Горячая линия</span>
   </a>
 
-  <!-- Плавающая кнопка горячей линии для ДЕСКТОПА -->
-  <button class="hotline-btn hotline-btn-desktop" id="hotlineBtnDesktop">
-    <span class="hotline-icon">📞</span>
+  <!-- Плавающая кнопка горячей линии — десктоп -->
+  <button type="button" class="hotline-btn hotline-btn-desktop" id="hotlineBtnDesktop">
+    <span class="hotline-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </span>
     <span class="hotline-text">Горячая линия</span>
   </button>
 
@@ -1692,8 +1737,10 @@
   <div class="phone-modal" id="phoneModal">
     <div class="phone-modal-overlay" id="phoneModalOverlay"></div>
     <div class="phone-modal-content">
-      <button class="phone-modal-close" id="phoneModalClose">&times;</button>
-      <div class="phone-modal-icon">📞</div>
+      <button type="button" class="phone-modal-close" id="phoneModalClose" aria-label="Закрыть">&times;</button>
+      <div class="phone-modal-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
       <h3>Горячая линия</h3>
       <a href="tel:+78005506923" class="phone-modal-number">8 (800) 550-69-23</a>
       <p class="phone-modal-hint">Бесплатный звонок по России</p>
@@ -1701,7 +1748,7 @@
   </div>
 
   <!-- Яндекс.Карты API -->
-  <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
   <script src="app.js"></script>
 </body>
 
